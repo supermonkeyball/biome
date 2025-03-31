@@ -2,10 +2,10 @@
   link: /
 
 - name: world map
-  link: /worldmap
+  link: /worldmap.html
 
 - name: phone book
-  link: /phonebook
+  link: /phonebook.html
 
 - name: help desk
-  link: /helpdesk
+  link: /helpdesk.html
