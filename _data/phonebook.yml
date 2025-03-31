@@ -1,9 +1,14 @@
 - name: kyu
   title: webmaster
   contact: ricefish@proton.me
-  room: <a href="/">#000</a>
+  room: <a href="#">#000</a>
+
+- name: morti∞
+  title: archive cfo
+  contact: "-"
+  room: <a href="#">#001</a>
 
 - name: demo
-  title: /
-  contact: /
-  room: <a href="/">#???</a>
+  title: medic
+  contact: d09113@protonmail.com
+  room: <a href="#">#002</a>

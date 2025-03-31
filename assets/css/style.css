@@ -1,25 +1,21 @@
 :root {
   --shu: gray;
-  --mu: white;
+  --mu: whitesmoke;
   --ku: blue;
 }
 
 body {
   margin: 0 auto;
   color: var(--shu);
-  background: var(--mu);
-  font-family: arial;
+  font-family: uni;
   letter-spacing: 1px;
   image-rendering: crisp-edges;
-}
-
-p {
-  line-height: 15px;
 }
 
 pre {
   padding: 0;
   margin: 0;
+  font-family: uni;
 }
 
 a {
@@ -31,7 +27,7 @@ a:hover {
 }
 
 hr {
-  color: white;
+  color: var(--mu);
 }
 
 h1 {
@@ -49,22 +45,33 @@ li {
 
 nav {
   display: flex;
+  margin: 5px;
   margin-bottom: 10px;
   align-items: center; 
 }
 
 nav a {
   width: 100%;
-  margin: 5px 2.5px 5px 2.5px;
   text-decoration: none;
+  space-between: 2.5px;
   text-align: center;
-  background: whitesmoke;
-  padding: 2.5px;
+  background: var(--mu);
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+nav a:last-child {
+  margin-right: 0; 
 }
 
 nav a:hover, .current {
-  background: gainsboro;
-  color: gray;
+  color: var(--shu);
+  background: linear-gradient(0deg, var(--mu) 20%, var(--shu) 300%);
+}
+
+.current:hover {
+  cursor: default;
 }
 
 .row {
@@ -84,10 +91,12 @@ nav a:hover, .current {
 
 .title {
   color: silver;
-  letter-spacing: 2px;
   font-weight: normal;
   white-space: nowrap;
   font-size: 30px;
+  background: none;
+  flex: 1;
+  padding: 0;
 }
 
 #container {
@@ -116,6 +125,6 @@ nav a:hover, .current {
 }
 
 @font-face {
-    font-family: "forma";
-    src: url("/assets/fonts/forma.ttf") format('truetype');
+    font-family: "uni";
+    src: url("/assets/fonts/uni.ttf") format('truetype');
 }
