@@ -74,10 +74,17 @@ nav a:hover, .current {
   cursor: default;
 }
 
+#container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 800px;
+}
+
 .row {
-  margin: 0;
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
   width: 100%;
   align-items: stretch;
 }
@@ -99,32 +106,25 @@ nav a:hover, .current {
   padding: 0;
 }
 
-#container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 800px;
+@font-face {
+    font-family: "uni";
+    src: url("/assets/fonts/uni.ttf") format('truetype');
 }
 
 @media only screen and (max-width: 800px) {
   #container {
-    width: 100%;
+    width: 98%;
   }
 
   .row {
     flex-wrap: wrap;
   }
 
-  .header {
-    width: 100%;
+  nav {
+    width: 98%;
   }
 
   .block {
     flex: 100%;
   }
-}
-
-@font-face {
-    font-family: "uni";
-    src: url("/assets/fonts/uni.ttf") format('truetype');
 }
