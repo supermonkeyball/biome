@@ -90,7 +90,7 @@ nav a:hover, .current {
 }
 
 .title {
-  color: silver;
+  color: var(--shu);
   font-weight: normal;
   white-space: nowrap;
   font-size: 30px;
