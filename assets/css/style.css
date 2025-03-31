@@ -37,6 +37,13 @@ h1 {
 
 table {
   width: 100%;
+  table-layout: fixed;
+}
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 li {
@@ -127,8 +134,13 @@ nav a:hover, .current {
   .block {
     flex: 100%;
   }
+}
 
-  table {
-    width: 98%;
+@media only screen and (max-width: 432px) {
+  nav a {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 30px;
   }
 }
