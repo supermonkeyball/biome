@@ -127,4 +127,8 @@ nav a:hover, .current {
   .block {
     flex: 100%;
   }
+
+  table {
+    width: 98%;
+  }
 }
