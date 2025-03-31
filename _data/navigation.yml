@@ -1,0 +1,11 @@
+- name: airport
+  link: /
+
+- name: world map
+  link: /worldmap.html
+
+- name: phone book
+  link: /phonebook.html
+
+- name: help desk
+  link: /helpdesk.html

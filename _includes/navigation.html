@@ -1,0 +1,8 @@
+<nav>
+  <h1 class="title">bi<img src="/assets/images/earth.gif"style="height: 0.8em;">me</h1>
+  {% for item in site.data.navigation %}
+      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+        {{ item.name }}
+      </a>
+  {% endfor %}
+</nav>

@@ -1,0 +1,121 @@
+:root {
+  --shu: gray;
+  --mu: white;
+  --ku: blue;
+}
+
+body {
+  margin: 0 auto;
+  color: var(--shu);
+  background: var(--mu);
+  font-family: arial;
+  letter-spacing: 1px;
+  image-rendering: crisp-edges;
+}
+
+p {
+  line-height: 15px;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--ku);
+}
+
+a:hover {
+  background: linear-gradient(0deg, var(--ku) -200%, transparent 90%);
+}
+
+hr {
+  color: white;
+}
+
+h1 {
+  all: unset;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center; 
+}
+
+nav a {
+  width: 100%;
+  margin: 5px 2.5px 5px 2.5px;
+  text-decoration: none;
+  text-align: center;
+  background: whitesmoke;
+  padding: 2.5px;
+}
+
+nav a:hover, .current {
+  background: gainsboro;
+  color: gray;
+}
+
+.row {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: stretch;
+}
+
+.block {
+  display: block;
+  margin: 5px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.title {
+  color: silver;
+  letter-spacing: 2px;
+  font-weight: normal;
+  white-space: nowrap;
+  font-size: 30px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 800px;
+}
+
+@media only screen and (max-width: 800px) {
+  #container {
+    width: 100%;
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .block {
+    flex: 100%;
+  }
+}
+
+@font-face {
+    font-family: "forma";
+    src: url("/assets/fonts/forma.ttf") format('truetype');
+}

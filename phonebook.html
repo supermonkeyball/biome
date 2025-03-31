@@ -1,0 +1,44 @@
+---
+layout: default
+title: phone book
+---
+<style>
+  td {
+    background: whitesmoke;
+  }
+</style>
+
+<div class="block">
+  <table>
+      <td>
+        name
+      </td>
+      <td>
+        profession
+      </td>
+      <td>
+        contact
+      </td>
+      <td>
+        room
+      </td>
+    </tr>
+
+    {% for item in site.data.phonebook %}
+      <tr>
+        <td>
+          {{ item.name }}
+        </td>
+        <td>
+          {{ item.title }}
+        </td>
+        <td>
+          {{ item.contact }}
+        </td>
+        <td>
+          {{ item.room }}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>

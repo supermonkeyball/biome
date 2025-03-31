@@ -1,0 +1,9 @@
+- name: kyu
+  title: webmaster
+  contact: ricefish@proton.me
+  room: <a href="/">#000</a>
+
+- name: demo
+  title: /
+  contact: /
+  room: <a href="/">#???</a>
