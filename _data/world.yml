@@ -1,0 +1,7 @@
+- name: laboratory
+  link: /laboratory
+  area: 1
+
+- name: library
+  link: /library
+  area: 1

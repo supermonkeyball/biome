@@ -44,6 +44,12 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  background: var(--mu);
+}
+
+.header {
+  background: gainsboro;
+  color: white;
 }
 
 li {

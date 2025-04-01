@@ -2,8 +2,23 @@
 layout: world
 title: laboratory
 permalink: /laboratory
-area: 1
+
 ---
 <div class="block">
-  coming soon: <a href="/laboratory/ffindex">fauna/flora index</a>
+  <table>
+    <tr>
+      <td class="header">project</td>
+      <td class="header">date</td> 
+      <td class="header">contributor(s)</td>
+    </tr>
+    {% for page in site.worlds %}
+      {% if page.category == "laboratory" %}
+        <tr>
+          <td><a href="{{ page.permalink }}">{{ page.title }}</a></td>
+          <td>date</td> 
+          <td>{{ page.contributor }}</td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
 </div>

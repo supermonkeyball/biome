@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
   </head>
   <body>
-    <a href="/worldmap.html">worldmap</a>/{{ page.title }}
+    <a href="/worldmap.html">worldmap</a>{% assign parts = page.permalink | split:
+    '/' %}{% for part in parts %}{% if forloop.last %}{{ part }}{% else %}<a
+      href="/{{ part }}/{{ parts[0..forloop.index] | join: '/' }}"
+      >{{ part }}</a
+    >/{% endif %}{% endfor %}
+
     <div id="container">
       {{ content }}
     </div>

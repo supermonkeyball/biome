@@ -30,9 +30,9 @@ permalink: /worldmap
 <div class="row">
   <div class="block">
     area 1: genius district
-    {% for world in site.worlds %}
-      {% if world.area == 1 %}
-        <li><a href="{{ site.url }}{{ world.url }}">{{ world.title }}</a></li>
+    {% for item in site.data.world %}
+      {% if item.area == 1 %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
       {% endif %}
     {% endfor %}
   </div>
