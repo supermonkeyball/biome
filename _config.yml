@@ -12,8 +12,7 @@ collections:
   posts:
     output          : true
   worlds:
-    laboratory:
-      output          : true   
+    output          : true 
 
 # Handling Reading
 safe                : false
