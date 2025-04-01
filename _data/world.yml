@@ -1,3 +1,5 @@
+# area 1
+
 - name: laboratory
   link: /laboratory
   area: 1
@@ -13,6 +15,12 @@
 - name: biome U.
   link: /#
   area: 1
+
+- name: museum
+  link: /#
+  area: 1
+
+# area 2
 
 - name: apartment
   link: /#
@@ -30,6 +38,8 @@
   link: /#
   area: 2
 
+# area 3
+
 - name: theater
   link: /#
   area: 3
@@ -45,6 +55,12 @@
 - name: arcade
   link: /#
   area: 3
+
+- name: restaurant
+  link: /#
+  area: 3
+
+# area 4
 
 - name: hander forest
   link: /#
