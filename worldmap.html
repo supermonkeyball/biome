@@ -30,7 +30,9 @@ title: world map
   <div class="block">
     area 1: genius district
     {% for world in site.worlds %}
-      <li><a href="{{ site.url }}{{ world.url }}">{{ world.title }}</a></li>
+      {% if world.area == 1 %}
+        <li><a href="{{ site.url }}{{ world.url }}">{{ world.title }}</a></li>
+      {% endif %}
     {% endfor %}
   </div>
 </div>
