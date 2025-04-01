@@ -5,63 +5,63 @@
   area: 1
 
 - name: library
-  link: /#
+  link: #
   area: 1
 
 - name: asset bank
-  link: /#
+  link: #
   area: 1
 
 - name: biome U.
-  link: /#
+  link: #
   area: 1
 
 - name: museum
-  link: /#
+  link: #
   area: 1
 
 # area 2
 
 - name: apartment
-  link: /#
+  link: #
   area: 2
 
 - name: bulletin board
-  link: /#
+  link: #
   area: 2
 
 - name: algae-bloom park
-  link: /#
+  link: #
   area: 2
 
 - name: graveyard
-  link: /#
+  link: #
   area: 2
 
 # area 3
 
 - name: theater
-  link: /#
+  link: #
   area: 3
 
 - name: hospital
-  link: /#
+  link: #
   area: 3
 
 - name: concert hall
-  link: /#
+  link: #
   area: 3
 
 - name: arcade
-  link: /#
+  link: #
   area: 3
 
 - name: restaurant
-  link: /#
+  link: #
   area: 3
 
 # area 4
 
 - name: hander forest
-  link: /#
+  link: #
   area: 4

@@ -123,6 +123,11 @@ nav a:hover, .current {
   padding: 0;
 }
 
+.path {
+  margin-bottom: 20px;
+  background: var(--mu);
+}
+
 @font-face {
     font-family: "uni";
     src: url("/assets/fonts/uni.ttf") format('truetype');
