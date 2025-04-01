@@ -21,9 +21,31 @@ permalink: /
 
 <div class="row">
   <div class="block">
-    <h1>current projects/now boarding..</h1>
-    <hr>
-    <p>burialgame vn, fishkill vn, 3ds zine (paused), fauna/flora index (paused)</p>
+    <table>
+      <colgroup>
+        <col style="width: 30%;"> 
+        <col style="width: 40%;">
+        <col style="width: 10%;">
+        <col style="width: 20%;"> 
+      </colgroup>
+      <tr>
+        <td colspan="4"><center>🛫 DEPARTURES - CURRENT PROJECTS</center></td>
+      </tr>
+      <tr>
+        <td class="header">destination</td>
+        <td class="header">flight</td>
+        <td class="header">gate</td>
+        <td class="header">remark</td>
+      </tr>
+     {% for item in site.data.airport.departures %}
+        <tr>
+          <td>{{ item.destination }}</td>
+          <td>{{ item.flight }}</td>
+          <td>{{ item.gate }}</td>
+          <td>{{ item.remark }}</td>
+        </tr>
+      {% endfor %}
+    </table>
   </div>
 </div>
 

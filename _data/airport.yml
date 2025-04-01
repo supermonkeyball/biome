@@ -1,0 +1,26 @@
+departures:
+  - flight: fauna/flora index
+    destination: laboratory
+    gate: <a href="/laboratory/ffindex" target="_blank">L01</a>
+    remark: DELAYED
+
+  - flight: burialgame VN
+    destination: theater
+    gate: <a href="#">TH01</a>
+    remark: ON TIME
+
+  - flight: fishkill VN
+    destination: theater
+    gate: <a href="#">TH02</a>
+    remark: ON TIME
+
+  - flight: 3ds zine
+    destination: arcade
+    gate: <a href="#">A01</a>
+    remark: DELAYED
+
+spotlight:
+  - artist: kyu
+    work: link
+
+#newsletter

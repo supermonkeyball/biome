@@ -40,8 +40,33 @@ permalink: /worldmap
 
 <div class="row">
   <div class="block" style="margin-left: auto; text-align: right;">
-    area 2:neighborhood
-    <li><a href="#">apartment</a></li>
-    <li><a href="#">algae-bloom park</a></li>
+    area 2: neighborhood
+    {% for item in site.data.world %}
+      {% if item.area == 2 %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="row">
+  <div class="block">
+    area 3: downtown
+    {% for item in site.data.world %}
+      {% if item.area == 3 %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="row">
+  <div class="block" style="margin-left: auto; text-align: right;">
+    area 4: off-road
+    {% for item in site.data.world %}
+      {% if item.area == 4 %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+      {% endif %}
+    {% endfor %}
   </div>
 </div>
