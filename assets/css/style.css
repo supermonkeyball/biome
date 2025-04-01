@@ -2,11 +2,15 @@
   --shu: gray;
   --mu: whitesmoke;
   --ku: blue;
+
+  --gu: gainsboro;
+  --vu: white;
 }
 
 body {
   margin: 0 auto;
   color: var(--shu);
+  background: var(--vu);
   font-family: uni;
   letter-spacing: 1px;
   image-rendering: crisp-edges;
@@ -47,8 +51,8 @@ td {
 }
 
 .header {
-  background: gainsboro;
-  color: white;
+  background: var(--gu);
+  color: var(--vu);
 }
 
 li {

@@ -1,9 +1,20 @@
 ---
 layout: world
 title: laboratory
-permalink: /laboratory/
+permalink: /laboratory
 
 ---
+<style>
+  :root {
+    --shu: olive;
+    --mu: PaleGoldenRod;
+    --ku: tomato;
+
+    --gu: DarkKhaki;
+    --vu: beige;
+  }
+</style>
+
 <div class="block">
   <table>
     <tr>
@@ -12,7 +23,7 @@ permalink: /laboratory/
       <td class="header">contributor(s)</td>
     </tr>
     {% for page in site.worlds %}
-      {% if page.category == "laboratory" %}
+      {% if page.permalink contains "/laboratory/" %}
         <tr>
           <td><a href="{{ page.permalink }}">{{ page.title }}</a></td>
           <td>date</td> 
