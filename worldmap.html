@@ -21,7 +21,7 @@ title: world map
   }
 
   .block a {
-    color: white;
+    color: var(--mu);
     text-decoration: underline;
   }
 </style>
@@ -29,16 +29,16 @@ title: world map
 <div class="row">
   <div class="block">
     area 1: genius district
-    <li>laboratory</li>
-    <li>library</li>
-    <li>asset bank/the archive</li>
+    {% for world in site.worlds %}
+      <li><a href="{{ world.url }}">{{ world.title }}</a></li>
+    {% endfor %}
   </div>
 </div>
 
 <div class="row">
   <div class="block" style="margin-left: auto; text-align: right;">
     area 2:neighborhood
-    <li>apartments</li>
-    <li>algae-bloom park</li>
+    <li><a href="#">apartment</a></li>
+    <li><a href="#">algae-bloom park</a></li>
   </div>
 </div>
