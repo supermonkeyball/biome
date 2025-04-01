@@ -5,3 +5,7 @@
 - name: library
   link: /library
   area: 1
+
+- name: asset bank
+  link: /asset-bank
+  area: 1
