@@ -20,6 +20,10 @@
   link: #
   area: 1
 
+- name: gallery
+  link: #
+  area: 1
+
 # area 2
 
 - name: apartment
@@ -59,6 +63,10 @@
 - name: restaurant
   link: #
   area: 3
+
+- name: church
+  link: #
+  area: 2
 
 # area 4
 
