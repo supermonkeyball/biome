@@ -2,7 +2,7 @@ departures:
   - flight: fauna/flora index
     destination: laboratory
     gate: <a href="/laboratory/ffindex" target="_blank">L01</a>
-    remark: DELAYED
+    remark: NOW BOARDING
 
   - flight: burialgame VN
     destination: theater
