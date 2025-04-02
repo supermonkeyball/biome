@@ -19,14 +19,14 @@ permalink: /laboratory
   <table>
     <tr>
       <td class="header">project</td>
-      <td class="header">date</td> 
+      <td class="header">status</td> 
       <td class="header">contributor(s)</td>
     </tr>
     {% for page in site.worlds %}
       {% if page.permalink contains "/laboratory/" %}
         <tr>
           <td><a href="{{ page.permalink }}">{{ page.title }}</a></td>
-          <td>uhhh</td> 
+          <td>ongoing, accepting submissions</td> 
           <td>{{ page.contributor }}</td>
         </tr>
       {% endif %}
