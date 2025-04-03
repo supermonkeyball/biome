@@ -13,17 +13,23 @@
       <style>
   #container {
     text-align: center;
+    border: solid 0.5px blue;
   }
 
   h1 {
     color: blue;
   }
+
+  marquee {
+    color: blue;
+    scrollamount: 10;
+  }
 </style>
 
 
 <div class="row">
-  <div class="block">
-    <marquee style="background: blue; color: white;" scrollamount="10">
+  <div class="block" style="margin: 0; border-bottom: blue solid 0.5px;">
+    <marquee>
       !!!!!!tuning into kyu channel!!!!!!!!!!!
     </marquee>
   </div>
@@ -60,8 +66,8 @@
 </div>
 
 <div class="row">
-  <div class="block">
-  <marquee style="background: blue; color: white;" direction="right" scrollamount="10">
+  <div class="block" style="margin: 0; border-top: blue solid 0.5px;">
+  <marquee direction="right">
     !!!!!!tuning into kyu channel!!!!!!!!!!!
   </marquee>
   </div>
