@@ -161,6 +161,6 @@ nav a:hover, .current {
     display: flex; 
     align-items: center;
     justify-content: center;
-    height: 30px;
+    height: 40px;
   }
 }
