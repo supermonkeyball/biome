@@ -12,11 +12,11 @@
     <div id="container">
       <style>
   :root {
-    --shu: darkslategray;
-    --mu: powderblue;
-    --ku: darkslategray;
+    --shu: #FF8080;
+    --mu: #FFCCCC;
+    --ku: red;
 
-    --vu: whitesmoke;
+    --vu: #FFE5E5;
   }
 
   #container {
@@ -33,6 +33,7 @@
     height: 200px;
     border: none;
     z-index: -1;
+    filter: blur(2.5px);
   }
 
   .block {
@@ -43,90 +44,123 @@
     margin: 10px;
   }
 
+  .block a {
+    text-decoration: none;
+    background: var(--mu);
+    width: 100%;
+    z-index: 111;
+  }
+
   .window {
     display: flex;
-    flex-direction: row;
     align-items: end;
-    justify-content: end;
     width: 100%;
-    height: 200px;
-    background: rgba(238, 232, 170, 0.8);
+    height: 150px;
+    background: rgba(268, 262, 200, 0.5);
+  }
+
+  .window:hover {
+    border: solid red 0.5px;
   }
 </style>
 
-  
-    <div class="block">
+
+  <div class="block">
+    <a href="/apartment/kyu">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/kyu">#000 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#000</span>
+          <span>kyu 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/kyu"></iframe>
-    </div>
-  
-    <div class="block">
+    </a>
+    <iframe src="/apartment/kyu"></iframe>
+  </div>
+
+  <div class="block">
+    <a href="/apartment/morti∞">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/morti∞">#001 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#001</span>
+          <span>morti∞ 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/morti∞"></iframe>
-    </div>
-  
-    <div class="block">
+    </a>
+    <iframe src="/apartment/morti∞"></iframe>
+  </div>
+
+  <div class="block">
+    <a href="/apartment/demo">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/demo">#002 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#002</span>
+          <span>demo 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/demo"></iframe>
-    </div>
-  
-    <div class="block">
+    </a>
+    <iframe src="/apartment/demo"></iframe>
+  </div>
+
+  <div class="block">
+    <a href="/apartment/valendar">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/valendar">#003 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#003</span>
+          <span>valendar 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/valendar"></iframe>
-    </div>
-  
-    <div class="block">
+    </a>
+    <iframe src="/apartment/valendar"></iframe>
+  </div>
+
+  <div class="block">
+    <a href="/apartment/patch">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/patch">#004 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#004</span>
+          <span>patch 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/patch"></iframe>
-    </div>
-  
-    <div class="block">
+    </a>
+    <iframe src="/apartment/patch"></iframe>
+  </div>
+
+  <div class="block">
+    <a href="/apartment/dizzy">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/dizzy">#005 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#005</span>
+          <span>dizzy 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/dizzy"></iframe>
-    </div>
-  
-    <div class="block">
+    </a>
+    <iframe src="/apartment/dizzy"></iframe>
+  </div>
+
+  <div class="block">
+    <a href="/apartment/gillespie">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/gillespie">#006 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#006</span>
+          <span>gillespie 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/gillespie"></iframe>
-    </div>
-  
-    <div class="block">
+    </a>
+    <iframe src="/apartment/gillespie"></iframe>
+  </div>
+
+  <div class="block">
+    <a href="/apartment/fortuna">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/fortuna">#013 -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>#013</span>
+          <span>fortuna 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/fortuna"></iframe>
-    </div>
-  
+    </a>
+    <iframe src="/apartment/fortuna"></iframe>
+  </div>
+
     </div>
   </body>
 </html>

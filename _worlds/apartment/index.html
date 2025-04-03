@@ -5,11 +5,11 @@ permalink: /apartment
 ---
 <style>
   :root {
-    --shu: darkslategray;
-    --mu: powderblue;
-    --ku: darkslategray;
+    --shu: #FF8080;
+    --mu: #FFCCCC;
+    --ku: red;
 
-    --vu: whitesmoke;
+    --vu: #FFE5E5;
   }
 
   #container {
@@ -23,9 +23,10 @@ permalink: /apartment
     top: -50px;
     left: 0;
     width: 100%;
-    height: 250px;
+    height: 200px;
     border: none;
     z-index: -1;
+    filter: blur(2.5px);
   }
 
   .block {
@@ -36,24 +37,36 @@ permalink: /apartment
     margin: 10px;
   }
 
+  .block a {
+    text-decoration: none;
+    background: var(--mu);
+    width: 100%;
+    z-index: 111;
+  }
+
   .window {
     display: flex;
-    flex-direction: row;
     align-items: end;
-    justify-content: end;
     width: 100%;
-    height: 200px;
-    background: rgba(238, 232, 170, 0.8);
+    height: 150px;
+    background: rgba(268, 262, 200, 0.5);
+  }
+
+  .window:hover {
+    border: solid red 0.5px;
   }
 </style>
 
-  {% for item in site.data.phonebook %}
-    <div class="block">
+{% for item in site.data.phonebook %}
+  <div class="block">
+    <a href="/apartment/{{ item.name }}">
       <div class="window">
-        <div style="opacity: 1.0 !important; background: var(--mu); width: 100%;">
-          <h1><a href="/apartment/{{ item.name }}">{{ item.room }} -></a></h1>
+        <div style="background: var(--mu); width: 100%; display: flex; justify-content: space-between;">
+          <span>{{ item.room }}</span>
+          <span>{{ item.name }} 🗝</span>
         </div>
       </div>
-      <iframe src="/apartment/{{ item.name }}"></iframe>
-    </div>
-  {% endfor %}
+    </a>
+    <iframe src="/apartment/{{ item.name }}"></iframe>
+  </div>
+{% endfor %}
