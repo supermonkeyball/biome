@@ -26,8 +26,8 @@ permalink: /laboratory
       {% if page.permalink contains "/laboratory/" %}
         <tr>
           <td><a href="{{ page.permalink }}">{{ page.title }}</a></td>
-          <td>accepting submissions</td> 
-          <td>kyu, dizzy, community</td>
+          <td>{{ page.status }}</td> 
+          <td>{{ page.contributor | join: ', ' }}</td>
         </tr>
       {% endif %}
     {% endfor %}
