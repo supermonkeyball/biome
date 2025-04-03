@@ -6,70 +6,70 @@
 
 - name: library
   link: #
-  area: 1
+  area: 9
 
 - name: asset bank
   link: #
-  area: 1
+  area: 9
 
 - name: biome U.
   link: #
-  area: 1
+  area: 9
 
 - name: museum
   link: #
-  area: 1
+  area: 9
 
 - name: gallery
   link: #
-  area: 1
+  area: 9
 
 # area 2
 
 - name: apartment
-  link: #
+  link: /apartment
   area: 2
 
 - name: bulletin board
   link: #
-  area: 2
+  area: 9
 
 - name: algae-bloom park
   link: #
-  area: 2
+  area: 9
 
 - name: graveyard
   link: #
-  area: 2
+  area: 9
 
 # area 3
 
 - name: theater
   link: #
-  area: 3
+  area: 9
 
 - name: hospital
   link: #
-  area: 3
+  area: 9
 
 - name: concert hall
   link: #
-  area: 3
+  area: 9
 
 - name: arcade
   link: #
-  area: 3
+  area: 9
 
 - name: restaurant
   link: #
-  area: 3
+  area: 9
 
 - name: church
   link: #
-  area: 2
+  area: 9
 
 # area 4
 
 - name: hander forest
   link: #
-  area: 4
+  area: 9

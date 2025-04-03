@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>biome | {{ page.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  </head>
+  <body>
+<div class="path"><a href="/worldmap">worldmap</a>/{% assign parts = page.permalink | split: '/' %}{% assign path = '' %}{% for part in parts %}{% unless part == '' %}{% assign path = path | append: '/' | append: part %}{% if forloop.last %}{{ part }}{% else %}<a href="{{ path }}">{{ part }}</a>/{% endif %}{% endunless %}{% endfor %}</div>
+    <div id="container">
+      {{ content }}
+    </div>
+  </body>
+</html>

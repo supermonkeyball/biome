@@ -13,6 +13,8 @@ collections:
     output          : true
   worlds:
     output          : true 
+  users:
+    output          : true 
 
 # Handling Reading
 safe                : false

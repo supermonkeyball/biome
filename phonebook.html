@@ -38,7 +38,7 @@ permalink: /phonebook
           {{ item.contact }}
         </td>
         <td>
-          {{ item.room }}
+          <a href="/apartment/{{ item.name }}">{{ item.room }}</a>
         </td>
       </tr>
     {% endfor %}
