@@ -12,7 +12,9 @@
     <div id="container">
       <style>
   :root {
-    --vu: gainsboro;
+    --vu: whitesmoke;
+    --mu: whitesmoke;
+    --ku: red;
   }
 
   #content {
@@ -23,7 +25,7 @@
   }
 
   .row {
-    align-items: center;
+    align-items: top;
     flex-wrap: nowrap;
     width: 100%;
   }
@@ -53,7 +55,7 @@
   }
 </style>
 
-<div class="row" style="background: silver; height: 150px;">
+<div class="row" style="background: var(--gu); height: 160px; background-clip: content-box; padding-bottom: 10px; overflow-x: scroll;">
   
     
   
@@ -66,7 +68,9 @@
          class="book" 
          data-permalink="/library/bob1" 
          data-title="book of biome 1" 
-         data-content="<p>content</p>
+         data-content="<center><h1>book of biome 1</h1></center>
+
+<p>content</p>
 " 
          style="--ku: red; --mu: pink;">
          <span class="text">book of biome 1</span>
@@ -78,7 +82,9 @@
          class="book" 
          data-permalink="/library/bob2" 
          data-title="book of biome 2" 
-         data-content="<p>content 2</p>
+         data-content="<center><h1>book of biome 2</h1></center>
+
+<p>content 2</p>
 " 
          style="--ku: blue; --mu: powderblue;">
          <span class="text">book of biome 2</span>
@@ -90,7 +96,8 @@
          class="book" 
          data-permalink="/library/bob3" 
          data-title="book of biome 3" 
-         data-content="<p>content 3</p>
+         data-content="<center><h1>book of biome 3</h1></center>
+<p>hello</p>
 " 
          style="--ku: olive; --mu: palegoldenrod;">
          <span class="text">book of biome 3</span>
@@ -99,11 +106,9 @@
   
     
   
-    
-  
 </div>
 
-<div class="row"><div id="content" style="display:none;"></div></div>
+<div class="row"><div id="content" style="display:none; height: 500px;"></div></div>
 
 <script>
 const books = document.querySelectorAll('.book');
