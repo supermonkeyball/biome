@@ -8,52 +8,51 @@
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
-<div class="path"><a href="/worldmap">worldmap</a>/library</div>
+<div class="path"><a href="/worldmap">worldmap</a>/library-old</div>
     <div id="container">
       <style>
   :root {
+    --shu: gray;
+    --mu: gainsboro;
+    --ku: hotpink;
+
     --vu: gainsboro;
   }
 
   #content {
-    background: white;
-    padding: 10px;
-    margin-top: 20px;
     width: 100%;
   }
 
   .row {
-    align-items: center;
     flex-wrap: nowrap;
     width: 100%;
   }
 
-  .book {
-    background: var(--mu);
-    padding: 5px;
-    width: 30px;
-    height: 150px;
-    text-decoration: none;
-  }
-
-  .book:hover {
-    background: var(--mu);
-    transform: translateY(10px); 
-    box-shadow: 0px -10px 0px 0px white;
-  }
-
-  .book .text {
+  .row a {
     display: flex;
-    justify-content: center;
+    background: var(--mu);
+    width: 200px;
+    height: 100px;
+    margin: 0;
+    text-decoration: none;
     align-items: center;
-    color: var(--ku);
-    transform: translate(-44%, 350%) rotate(-90deg);
-    width: 150px;
-    pointer-events: none;
+    justify-content: center;
+    transform: rotate(-90deg); 
+    transform-origin: 50% 50%;
+  }
+
+  .row a:hover {
+    background: var(--mu);
+    transform: translateY(10px) rotate(-90deg); 
+    box-shadow: 0px -10px 0px 0px white;
   }
 </style>
 
-<div class="row" style="background: silver; height: 150px;">
+<div class="row" style="height: 300px; margin-bottom: 30px; padding: 10px;">
+  <div id="content" style="display:none;"></div>
+</div>
+
+<div class="row" style="overflow-x: scroll; height: 230px; justify-content: center;">
   
     
   
@@ -69,7 +68,7 @@
          data-content="<p>content</p>
 " 
          style="--ku: red; --mu: pink;">
-         <span class="text">book of biome 1</span>
+         book of biome 1
       </a>
     
   
@@ -81,7 +80,7 @@
          data-content="<p>content 2</p>
 " 
          style="--ku: blue; --mu: powderblue;">
-         <span class="text">book of biome 2</span>
+         book of biome 2
       </a>
     
   
@@ -93,7 +92,7 @@
          data-content="<p>content 3</p>
 " 
          style="--ku: olive; --mu: palegoldenrod;">
-         <span class="text">book of biome 3</span>
+         book of biome 3
       </a>
     
   
@@ -103,18 +102,17 @@
   
 </div>
 
-<div class="row"><div id="content" style="display:none;"></div></div>
-
 <script>
 const books = document.querySelectorAll('.book');
 
 books.forEach(function(book) {
-  book.addEventListener("click", show_book);
+  book.addEventListener("click", myFunction);
 });
 
-function show_book(event) {
+function myFunction(event) {
   const label = event.target.getAttribute('data-permalink');
   const contentDiv = document.getElementById('content');
+  const overlay = document.getElementById('popup-overlay');
   contentDiv.innerHTML = "";  
 
   books.forEach(function(book) {
@@ -126,9 +124,12 @@ function show_book(event) {
   });
 
   contentDiv.style.display = "block";
+
+  overlay.addEventListener('click', function() {
+    contentDiv.style.display = "none";
+  });
 }
 </script>
-
 
 
 
