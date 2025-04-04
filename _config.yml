@@ -13,6 +13,7 @@ collections:
     output          : true
   worlds:
     output          : true 
+    permalink       : /:collection/:path
   users:
     output          : true 
 

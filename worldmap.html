@@ -34,10 +34,10 @@ permalink: /worldmap
 
 <div class="row">
   <div class="block">
-    area 1: open-field commons
+    area 1: biome commons
     {% for item in site.data.world %}
       {% if item.area == 1 %}
-        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+        <li>🗁<a href="{{ item.link }}">{{ item.name }}</a></li>
       {% endif %}
     {% endfor %}
   </div>
@@ -48,7 +48,7 @@ permalink: /worldmap
     area 2: neighborhood
     {% for item in site.data.world %}
       {% if item.area == 2 %}
-        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+        <li><a href="{{ item.link }}">{{ item.name }}</a>🗁</li>
       {% endif %}
     {% endfor %}
   </div>

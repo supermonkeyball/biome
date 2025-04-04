@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>biome | library</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.gif">
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+<div class="path"><a href="/worldmap">worldmap</a>/library</div>
+    <div id="container">
+      <style>
+  :root {
+    --shu: gray;
+    --mu: gainsboro;
+    --ku: hotpink;
+
+    --vu: gainsboro;
+  }
+
+  #content {
+    width: 100%;
+  }
+
+  .row {
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .row a {
+    display: flex;
+    writing-mode: sideways-lr;
+    background: var(--mu);
+    width: 30px;
+    min-width: 30px;
+    height: 200px;
+    margin: 0;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .row a:hover {
+    background: var(--mu);
+    transform: translateY(10px);
+    box-shadow: 0px -10px 0px 0px white;
+  }
+</style>
+
+<div class="row" style="height: 300px; margin-bottom: 30px; padding: 10px;"><div id="content" style="display:none;"></div></div>
+
+<div class="row" style="overflow-x: scroll; height: 230px; justify-content: center;">
+  
+    
+  
+    
+  
+    
+  
+    
+        <a href="#" 
+           class="book" 
+           data-permalink="/library/bob1" 
+           data-title="book of biome 1" 
+           data-content="<p>content</p>
+" 
+           style="--ku: red; --mu: pink;">
+           book of biome 1
+        </a>
+    
+  
+    
+        <a href="#" 
+           class="book" 
+           data-permalink="/library/bob2" 
+           data-title="book of biome 2" 
+           data-content="<p>content 2</p>
+" 
+           style="--ku: blue; --mu: powderblue;">
+           book of biome 2
+        </a>
+    
+  
+    
+        <a href="#" 
+           class="book" 
+           data-permalink="/library/bob3" 
+           data-title="book of biome 3" 
+           data-content="<p>content 3</p>
+" 
+           style="--ku: olive; --mu: palegoldenrod;">
+           book of biome 3
+        </a>
+    
+  
+    
+  
+</div>
+
+<script>
+const books = document.querySelectorAll('.book');
+
+books.forEach(function(book) {
+  book.addEventListener("click", myFunction);
+});
+
+function myFunction(event) {
+  
+  const label = event.target.getAttribute('data-permalink');
+  const contentDiv = document.getElementById('content');
+  const overlay = document.getElementById('popup-overlay');
+  contentDiv.innerHTML = "";  
+
+  books.forEach(function(book) {
+    const permalink = book.getAttribute('data-permalink');
+    if (permalink === label) {
+      const content = book.getAttribute('data-content');
+      contentDiv.innerHTML = content;  
+    }
+  });
+
+  contentDiv.style.display = "block";
+
+  overlay.addEventListener('click', function() {
+    contentDiv.style.display = "none";
+  });
+}
+</script>
+
+
+    </div>
+  </body>
+</html>

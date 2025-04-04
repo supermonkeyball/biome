@@ -5,8 +5,8 @@
   area: 1
 
 - name: library
-  link: #
-  area: 9
+  link: /library
+  area: 1
 
 - name: asset bank
   link: #
