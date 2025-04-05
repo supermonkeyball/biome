@@ -8,8 +8,11 @@ spine: powderblue
 <center><h1>{{ page.title }}</h1></center>
 
 INCOMING TRANSMISSION 
+
 From:: fortuna (ROOM #013)
+
 Subject:: "Finally found it!"
+
 Message Contents::
  
 "Hey, it's fortuna, like the subject says I finally found, well... kinda found
