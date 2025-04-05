@@ -33,7 +33,7 @@ PREFACE
 
 "In the spaces between her fingernail and flesh, bumping our heads on keratin
 and capillaries, clinging desperately onto her eyelashes, praying for a staring
-contest, sinking deep into her cells, stringing hammocks on actin tubules... 
+contest, sinking deep into her cells, stringing hammocks on actin filaments... 
 all of these places, at all times, in various states of awareness and joy,
 this... is where we seem to always find ourselves."
 
