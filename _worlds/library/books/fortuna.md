@@ -7,22 +7,22 @@ spine: powderblue
 ---
 <center><h1>{{ page.title }}</h1></center>
 
->> INCOMING TRANSMISSION 
->> From:: fortuna (ROOM #013)
->> Subject:: "Finally found it!"
->> Message Contents::
->> 
->> "Hey, it's fortuna, like the subject says I finally found, well... kinda found
->> one part of that textbook I mentioned a while ago. Pretty good introductory 
->> stuff, gets more in depth later from what I can remember. Haven't found the
->> title or cover pages yet, thing got into a freak accident with my ceiling fan
->> a few years ago. When I find it, (and the rest, obviously), I'll upload it
->> here. I know you all were looking for some more informational stuff to start
->> the new collection, so I'll be tearing my place apart looking for it. 
->> 
->> I'll be in touch."
->> TRANSMISSION END
->> ONE (1) ATTACHMENT :: "PREFACE"
+INCOMING TRANSMISSION 
+From:: fortuna (ROOM #013)
+Subject:: "Finally found it!"
+Message Contents::
+ 
+"Hey, it's fortuna, like the subject says I finally found, well... kinda found
+one part of that textbook I mentioned a while ago. Pretty good introductory 
+stuff, gets more in depth later from what I can remember. Haven't found the
+title or cover pages yet, thing got into a freak accident with my ceiling fan
+a few years ago. When I find it, (and the rest, obviously), I'll upload it
+here. I know you all were looking for some more informational stuff to start
+the new collection, so I'll be tearing my place apart looking for it. 
+ 
+I'll be in touch."
+TRANSMISSION END
+ONE (1) ATTACHMENT :: "PREFACE"
 
 ## **PREFACE** ##
 
