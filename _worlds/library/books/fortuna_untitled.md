@@ -1,6 +1,6 @@
 ---
 title: untitled
-permalink: /library/textbook
+permalink: /library/fortuna/untitled
 
 text: olive
 spine: palegoldenrod
@@ -24,7 +24,9 @@ here. I know you all were looking for some more informational stuff to start
 the new collection, so I'll be tearing my place apart looking for it. 
  
 I'll be in touch."
+
 TRANSMISSION END
+
 ONE (1) ATTACHMENT :: "PREFACE"
 
 PREFACE

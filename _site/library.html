@@ -22,15 +22,17 @@
     padding: 10px;
     margin-top: 20px;
     width: 100%;
+    overflow: scroll;
   }
 
   .row {
-    align-items: top;
+    align-items: flex-start;
     flex-wrap: nowrap;
     width: 100%;
   }
 
   .book {
+    position: relative;
     background: var(--mu);
     padding: 5px;
     width: 30px;
@@ -45,14 +47,14 @@
   }
 
   .book .text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
     color: var(--ku);
     transform: translate(-44%, 350%) rotate(-90deg);
-    width: 150px;
+    width: 140px;
     pointer-events: none;
+    white-space: nowrap;
     text-overflow: ellipsis;
+    overflow: hidden;
   }
 </style>
 
@@ -67,7 +69,7 @@
     
       <a href="#" 
          class="book" 
-         data-permalink="/library/textbook" 
+         data-permalink="/library/fortuna/untitled" 
          data-title="untitled" 
          data-content="<center><h1>untitled</h1></center>
 
@@ -87,9 +89,11 @@ a few years ago. When I find it, (and the rest, obviously), I’ll upload it
 here. I know you all were looking for some more informational stuff to start
 the new collection, so I’ll be tearing my place apart looking for it.</p>
 
-<p>I’ll be in touch.”
-TRANSMISSION END
-ONE (1) ATTACHMENT :: “PREFACE”</p>
+<p>I’ll be in touch.”</p>
+
+<p>TRANSMISSION END</p>
+
+<p>ONE (1) ATTACHMENT :: “PREFACE”</p>
 
 <p>PREFACE</p>
 
@@ -166,7 +170,7 @@ across this wondrous, beautiful plane.</p>
   
 </div>
 
-<div class="row"><div id="content" style="display:none; height: 500px; overflow-y: scroll;"></div></div>
+<div class="row"><div id="content" style="display:none; flex: 1; overflow-y: scroll; height: 60vh;"></div></div>
 
 <script>
 const books = document.querySelectorAll('.book');
