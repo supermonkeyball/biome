@@ -24,7 +24,7 @@ I'll be in touch."
 TRANSMISSION END
 ONE (1) ATTACHMENT :: "PREFACE"
 
-## **PREFACE** ##
+PREFACE
 
 "In the spaces between her fingernail and flesh, bumping our heads on keratin
 and capillaries, clinging desperately onto her eyelashes, praying for a staring
