@@ -1,26 +1,33 @@
------
+---
 title: untitled textbook
-permalink: /library/book1
---
+permalink: /library/textbook
 
->> INCOMING TRANSMISSION 
->> From:: fortuna (ROOM #013)
->> Subject:: "Finally found it!"
->> Message Contents::
->> 
->> "Hey, it's fortuna, like the subject says I finally found, well... kinda found
->> one part of that textbook I mentioned a while ago. Pretty good introductory 
->> stuff, gets more in depth later from what I can remember. Haven't found the
->> title or cover pages yet, thing got into a freak accident with my ceiling fan
->> a few years ago. When I find it, (and the rest, obviously), I'll upload it
->> here. I know you all were looking for some more informational stuff to start
->> the new collection, so I'll be tearing my place apart looking for it. 
->> 
->> I'll be in touch."
->> TRANSMISSION END
->> ONE (1) ATTACHMENT :: "PREFACE"
+text: blue
+spine: powderblue
+---
+<center><h1>{{ page.title }}</h1></center>
 
-## **PREFACE** ##
+INCOMING TRANSMISSION 
+
+From:: fortuna (ROOM #013)
+
+Subject:: "Finally found it!"
+
+Message Contents::
+ 
+"Hey, it's fortuna, like the subject says I finally found, well... kinda found
+one part of that textbook I mentioned a while ago. Pretty good introductory 
+stuff, gets more in depth later from what I can remember. Haven't found the
+title or cover pages yet, thing got into a freak accident with my ceiling fan
+a few years ago. When I find it, (and the rest, obviously), I'll upload it
+here. I know you all were looking for some more informational stuff to start
+the new collection, so I'll be tearing my place apart looking for it. 
+ 
+I'll be in touch."
+TRANSMISSION END
+ONE (1) ATTACHMENT :: "PREFACE"
+
+PREFACE
 
 "In the spaces between her fingernail and flesh, bumping our heads on keratin
 and capillaries, clinging desperately onto her eyelashes, praying for a staring
@@ -85,4 +92,3 @@ nebulous and odd nature, the goal of total comprehension of biome's core essence
 is frankly unreasonable, but this shall not stop the authors from showing what 
 can be shown, as close as possible, to what is judged as some sort of commonality 
 across this wondrous, beautiful plane. 
-
