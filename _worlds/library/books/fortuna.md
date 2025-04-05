@@ -2,8 +2,8 @@
 title: untitled textbook
 permalink: /library/textbook
 
-text: blue
-spine: powderblue
+text: olive
+spine: palegoldenrod
 ---
 <center><h1>{{ page.title }}</h1></center>
 
