@@ -1,5 +1,5 @@
 ---
-title: untitled textbook
+title: untitled
 permalink: /library/textbook
 
 text: olive
