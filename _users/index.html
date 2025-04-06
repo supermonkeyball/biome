@@ -1,0 +1,70 @@
+---
+layout: world
+title: user
+permalink: /user
+---
+<style>
+  :root {
+    --ku: silver;
+    --mu: darkslategray;
+    --shu: white;
+    --vu: darkslategray;
+  }
+  .toggle:before {
+    content: '🗀';
+  }
+
+  .toggle.active:before {
+    content: '🗁'; 
+  }
+
+  .toggle {
+    cursor: pointer;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .dropdown.active {
+    display: block;
+  }
+</style>
+
+<div class="block">
+  <span class="toggle">community</span>
+  <div class="dropdown">
+    {% for file in site.worlds %}
+      {% for contributor in file.contributor %}
+        {% if contributor == "community" %}
+          <li>&nbsp;│<a href="{{ file.permalink }}">{{ file.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% for user in site.data.phonebook %}
+    <div class="block">
+      <span class="toggle">{{ user.name }}</span>
+      <div class="dropdown">
+        {% for file in site.worlds %}
+          {% for contributor in file.contributor %}
+            {% if contributor == user.name %}
+              <li>&nbsp;│<a href="{{ file.permalink }}">{{ file.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+{% endfor %}
+
+<script>
+  document.querySelectorAll('.toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      var dropdown = this.nextElementSibling; 
+      dropdown.classList.toggle('active');   
+      this.classList.toggle('active');    
+    });
+  });
+</script>

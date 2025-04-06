@@ -3,94 +3,46 @@ layout: world
 title: library
 permalink: /library
 ---
-<style>
-  :root {
-    --vu: whitesmoke;
-    --mu: whitesmoke;
-    --ku: red;
-  }
+<head>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/library.css">
+</head>
 
-  #content {
-    background: white;
-    padding: 10px;
-    margin-top: 20px;
-    width: 100%;
-    overflow: scroll;
-  }
-
-  .row {
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    width: 100%;
-  }
-
-  .book {
-    position: relative;
-    background: var(--mu);
-    padding: 5px;
-    width: 30px;
-    height: 150px;
-    text-decoration: none;
-  }
-
-  .book:hover {
-    background: var(--mu);
-    transform: translateY(10px); 
-    box-shadow: 0px -10px 0px 0px white;
-  }
-
-  .book .text {
-    display: inline-block;
-    color: var(--ku);
-    transform: translate(-44%, 350%) rotate(-90deg);
-    width: 140px;
-    pointer-events: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-</style>
-
-<div class="row" style="background: var(--gu); height: 160px; background-clip: content-box; padding-bottom: 10px; overflow-x: scroll;">
+<div class="row bookshelf">
   {% for file in site.worlds %}
     {% if file.permalink contains '/library/' %}
-      <a href="#" 
-         class="book" 
-         data-permalink="{{ file.permalink }}" 
-         data-title="{{ file.title }}" 
-         data-content="{{ file.content }}" 
-         style="--ku: {{ file.text }}; --mu: {{ file.spine }};">
-         <span class="text">{{ file.title }}</span>
-      </a>
+      <div class="book" data-title="{{ file.title }}" style="--ku: {{ file.text }}; --mu: {{ file.spine }};">
+        <span class="text">{{ file.title }}</span>
+      </div>
     {% endif %}
   {% endfor %}
 </div>
 
-<div class="row"><div id="content" style="display:none; flex: 1; overflow-y: scroll; height: 60vh;"></div></div>
+{% for file in site.worlds %}
+  {% if file.permalink contains '/library/' %}
+    <div id="page" data-title="{{ file.title }}">
+      <p><center><a href="{{ file.permalink }}"><h2>{{ file.title }}</h2></a>{{ file.contributor }}</center></p><br>
+      {{ file.content }}
+    </div>
+  {% endif %}
+{% endfor %}
 
 <script>
-const books = document.querySelectorAll('.book');
+  const books = document.querySelectorAll('.book');
 
-books.forEach(function(book) {
-  book.addEventListener("click", show_book);
-});
+  books.forEach(book => {
+    book.addEventListener('click', () => {
+      const bookTitle = book.getAttribute('data-title');
 
-function show_book(event) {
-  const label = event.target.getAttribute('data-permalink');
-  const contentDiv = document.getElementById('content');
-  contentDiv.innerHTML = "";  
-
-  books.forEach(function(book) {
-    const permalink = book.getAttribute('data-permalink');
-    if (permalink === label) {
-      const content = book.getAttribute('data-content');
-      contentDiv.innerHTML = content;  
-    }
+      const pages = document.querySelectorAll('#page');
+      pages.forEach(page => {
+        if (page.getAttribute('data-title') === bookTitle) {
+          page.style.display = 'block';
+        } else {
+          page.style.display = 'none';
+        }
+      });
+    });
   });
-
-  contentDiv.style.display = "block";
-}
 </script>
-
-
 

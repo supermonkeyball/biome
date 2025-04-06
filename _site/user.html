@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>biome | user</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.gif">
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+<div class="path"><a href="/worldmap">worldmap</a>/user</div>
+    <div id="container">
+      <style>
+  :root {
+    --ku: silver;
+    --mu: darkslategray;
+    --shu: white;
+    --vu: darkslategray;
+  }
+  .toggle:before {
+    content: '🗀';
+  }
+
+  .toggle.active:before {
+    content: '🗁'; 
+  }
+
+  .toggle {
+    cursor: pointer;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .dropdown.active {
+    display: block;
+  }
+</style>
+
+<div class="block">
+  <span class="toggle">community</span>
+  <div class="dropdown">
+    
+      
+    
+      
+        
+          <li>&nbsp;│<a href="/laboratory/ffindex">fauna/flora index</a></li>
+        
+      
+        
+      
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+  </div>
+</div>
+
+
+    <div class="block">
+      <span class="toggle">kyu</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+              <li>&nbsp;│<a href="/laboratory/ffindex">fauna/flora index</a></li>
+            
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="toggle">morti∞</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="toggle">demo</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="toggle">valendar</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="toggle">patch</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="toggle">dizzy</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+          
+            
+              <li>&nbsp;│<a href="/laboratory/ffindex">fauna/flora index</a></li>
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="toggle">gillespie</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="block">
+      <span class="toggle">fortuna</span>
+      <div class="dropdown">
+        
+          
+        
+          
+            
+          
+            
+          
+            
+          
+        
+          
+        
+          
+        
+          
+            
+              <li>&nbsp;│<a href="/library/untitled">untitled</a></li>
+            
+          
+        
+          
+        
+      </div>
+    </div>
+
+
+<script>
+  document.querySelectorAll('.toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      var dropdown = this.nextElementSibling; 
+      dropdown.classList.toggle('active');   
+      this.classList.toggle('active');    
+    });
+  });
+</script>
+
+    </div>
+  </body>
+</html>

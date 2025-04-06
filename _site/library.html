@@ -10,55 +10,12 @@
   <body>
 <div class="path"><a href="/worldmap">worldmap</a>/library</div>
     <div id="container">
-      <style>
-  :root {
-    --vu: whitesmoke;
-    --mu: whitesmoke;
-    --ku: red;
-  }
+      <head>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/library.css">
+</head>
 
-  #content {
-    background: white;
-    padding: 10px;
-    margin-top: 20px;
-    width: 100%;
-    overflow: scroll;
-  }
-
-  .row {
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    width: 100%;
-  }
-
-  .book {
-    position: relative;
-    background: var(--mu);
-    padding: 5px;
-    width: 30px;
-    height: 150px;
-    text-decoration: none;
-  }
-
-  .book:hover {
-    background: var(--mu);
-    transform: translateY(10px); 
-    box-shadow: 0px -10px 0px 0px white;
-  }
-
-  .book .text {
-    display: inline-block;
-    color: var(--ku);
-    transform: translate(-44%, 350%) rotate(-90deg);
-    width: 140px;
-    pointer-events: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-</style>
-
-<div class="row" style="background: var(--gu); height: 160px; background-clip: content-box; padding-bottom: 10px; overflow-x: scroll;">
+<div class="row bookshelf">
   
     
   
@@ -67,21 +24,62 @@
     
   
     
-      <a href="#" 
-         class="book" 
-         data-permalink="/library/fortuna/untitled" 
-         data-title="untitled" 
-         data-content="<center><h1>untitled</h1></center>
+      <div class="book" data-title="example" style="--ku: red; --mu: pink;">
+        <span class="text">example</span>
+      </div>
+    
+  
+    
+      <div class="book" data-title="untitled" style="--ku: olive; --mu: palegoldenrod;">
+        <span class="text">untitled</span>
+      </div>
+    
+  
+    
+  
+</div>
 
-<p>INCOMING TRANSMISSION</p>
 
-<p>From:: fortuna (ROOM #013)</p>
+  
 
-<p>Subject:: “Finally found it!”</p>
+  
 
-<p>Message Contents::</p>
+  
 
-<p>“Hey, it’s fortuna, like the subject says I finally found, well… kinda found
+  
+    <div id="page" data-title="example">
+      <p><center><a href="/library/example"><h2>example</h2></a></center></p><br>
+      <p>If you are interested in donating a book to the library, please reach out to <a href="mailto:mailbox@biome.zip">mailbox@biome.zip</a></p>
+
+    </div>
+  
+
+  
+    <div id="page" data-title="untitled">
+      <p><center><a href="/library/untitled"><h2>untitled</h2></a>fortuna</center></p><br>
+      <blockquote>
+  <blockquote>
+    <p>INCOMING TRANSMISSION</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>From:: fortuna (ROOM #013)</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>Subject:: “Finally found it!”</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>Message Contents::</p>
+
+    <p>“Hey, it’s fortuna, like the subject says I finally found, well… kinda found
 one part of that textbook I mentioned a while ago. Pretty good introductory 
 stuff, gets more in depth later from what I can remember. Haven’t found the
 title or cover pages yet, thing got into a freak accident with my ceiling fan
@@ -89,17 +87,27 @@ a few years ago. When I find it, (and the rest, obviously), I’ll upload it
 here. I know you all were looking for some more informational stuff to start
 the new collection, so I’ll be tearing my place apart looking for it.</p>
 
-<p>I’ll be in touch.”</p>
+    <p>I’ll be in touch.”</p>
+  </blockquote>
+</blockquote>
 
-<p>TRANSMISSION END</p>
+<blockquote>
+  <blockquote>
+    <p>TRANSMISSION END</p>
+  </blockquote>
+</blockquote>
 
-<p>ONE (1) ATTACHMENT :: “PREFACE”</p>
+<blockquote>
+  <blockquote>
+    <p>ONE (1) ATTACHMENT :: “PREFACE”</p>
+  </blockquote>
+</blockquote>
 
-<p>PREFACE</p>
+<h2 id="preface"><strong>PREFACE</strong></h2>
 
 <p>“In the spaces between her fingernail and flesh, bumping our heads on keratin
 and capillaries, clinging desperately onto her eyelashes, praying for a staring
-contest, sinking deep into her cells, stringing hammocks on actin tubules… 
+contest, sinking deep into her cells, stringing hammocks on actin filaments… 
 all of these places, at all times, in various states of awareness and joy,
 this… is where we seem to always find ourselves.”</p>
 
@@ -160,43 +168,32 @@ nebulous and odd nature, the goal of total comprehension of biome’s core essen
 is frankly unreasonable, but this shall not stop the authors from showing what 
 can be shown, as close as possible, to what is judged as some sort of commonality 
 across this wondrous, beautiful plane.</p>
-" 
-         style="--ku: olive; --mu: palegoldenrod;">
-         <span class="text">untitled</span>
-      </a>
-    
-  
-    
-  
-</div>
 
-<div class="row"><div id="content" style="display:none; flex: 1; overflow-y: scroll; height: 60vh;"></div></div>
+
+    </div>
+  
+
+  
+
 
 <script>
-const books = document.querySelectorAll('.book');
+  const books = document.querySelectorAll('.book');
 
-books.forEach(function(book) {
-  book.addEventListener("click", show_book);
-});
+  books.forEach(book => {
+    book.addEventListener('click', () => {
+      const bookTitle = book.getAttribute('data-title');
 
-function show_book(event) {
-  const label = event.target.getAttribute('data-permalink');
-  const contentDiv = document.getElementById('content');
-  contentDiv.innerHTML = "";  
-
-  books.forEach(function(book) {
-    const permalink = book.getAttribute('data-permalink');
-    if (permalink === label) {
-      const content = book.getAttribute('data-content');
-      contentDiv.innerHTML = content;  
-    }
+      const pages = document.querySelectorAll('#page');
+      pages.forEach(page => {
+        if (page.getAttribute('data-title') === bookTitle) {
+          page.style.display = 'block';
+        } else {
+          page.style.display = 'none';
+        }
+      });
+    });
   });
-
-  contentDiv.style.display = "block";
-}
 </script>
-
-
 
 
     </div>
