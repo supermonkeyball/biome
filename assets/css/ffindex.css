@@ -1,0 +1,145 @@
+:root {
+  --shu: olive;
+  --mu: PaleGoldenRod;
+  --ku: tomato;
+
+  --gu: DarkKhaki;
+  --vu: beige;
+}
+
+table {
+  table-layout: auto;
+}
+
+#container {
+  width: 1000px;
+}
+
+.row {
+  gap: 20px;
+  padding: 10px;
+  height: 500px;
+  background: white;
+}
+
+.dex_container {
+  flex: 4;
+  padding: 30px;
+}
+
+.dex_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr auto;
+  height: 100%;
+}
+
+.dex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.dex_info img {
+  max-width: 100%;
+}
+
+.dex_info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dex_description {
+  grid-column: 1 / span 2;
+  padding: 10px;
+  margin: 5px;
+  background: whitesmoke;
+}
+
+.dex_list {
+  display: flex;
+  overflow: scroll;
+  flex-direction: column;
+}
+
+.dex_title {
+  text-align: center;
+  font-weight: bold;
+  background: var(--gu);
+  color: whitesmoke;
+  padding: 2.5px;
+}
+
+.fauna {
+  background: var(--vu);
+}
+
+.flora {
+  background: var(--vu);
+}
+
+.species {
+  display: flex;
+  padding: 5px;
+  flex-direction: row;
+}
+
+.species:hover, .species.selected {
+  cursor: pointer;
+  background: var(--mu);
+}
+
+@media only screen and (max-width: 1000px) {
+  #container {
+    width: 98%;
+  }
+
+ .row {
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 0px;
+    height: 100%;
+  }
+
+  .block {
+    flex: 100%;
+  }
+
+  .dex_container {
+    height: 65vh;
+  }
+
+  .dex {
+    height: auto;
+  }
+
+  .dex_info img {
+    max-width: 300px;
+  }
+
+  .dex_list {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .species {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .dex_row {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; 
+  }
+
+  .dex_info {
+    grid-column: 1 / span 2;
+  }
+}

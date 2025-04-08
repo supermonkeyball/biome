@@ -8,18 +8,106 @@ contributor:
   - kyu
   - dizzy
 ---
-<style>
-  :root {
-    --shu: olive;
-    --mu: PaleGoldenRod;
-    --ku: tomato;
+<head>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ffindex.css">
+</head>
 
-    --gu: DarkKhaki;
-    --vu: beige;
-  }
-</style>
+<div class="block">
+  <center><span style="font-size: 1.25em; font-weight: bold ">fauna/flora index</span>&nbsp;(<a href="https://tally.so/r/npz6rb" target="_blank">submit here</a>)</center>
+</div>
 
 <div class="row">
-<iframe data-tally-src="https://tally.so/embed/npz6rb?alignLeft=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="636" frameborder="0" marginheight="0" marginwidth="0" title="fauna/flora index: submission"></iframe>
-<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+  <div class="block fauna">
+    <div class="dex_title">fauna</div>
+    <div class="dex_list">
+      {% for k in site.data.ffindex %}
+        {% if k.type == "fauna" %}
+          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div>&nbsp;<div>{{ k.species }}</div></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+<div class="block dex_container">
+  {% for k in site.data.ffindex %}
+    <div class="dex" data-title="{{ k.species }}" style="display: none">
+      <div class="dex_row">
+        <div class="block dex_info" style="overflow: visible"><img src="{{ k.image }}"></div>
+        <div class="block dex_info">
+          <table>
+            <tr><th colspan="2">#{{ forloop.index }} {{ k.species }}</th></tr>
+            <tr>
+              <td>lives in..</td>
+              <td>{{ k.habitat }}</td>
+            </tr>
+            <tr>
+              <td>eats...</td>
+              <td>{{ k.diet }}</td>
+            </tr>
+            <tr>
+              <td>discovered by</td>
+              <td>
+                {% if k.credit_url %}
+                  <a href="{{ k.credit_url }}" target="_blank">{{ k.credit_name }}</a>
+                {% else %}
+                   {{ k.credit_name }}
+                {% endif %}
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="dex_description">
+          {{ k.description }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 </div>
+
+  <div class="block flora">
+    <div class="dex_title">flora</div>
+      <div class="dex_list">
+      {% for k in site.data.ffindex %}
+        {% if k.type == "flora" %}
+          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div>&nbsp;<div>{{ k.species }}</div></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  const species = document.querySelectorAll('.species');
+
+  species.forEach(species => {
+    species.addEventListener('click', () => {
+      const name = species.getAttribute('data-name');
+      
+      const dex = document.querySelectorAll('.dex');
+      dex.forEach(dex => {
+        if (dex.getAttribute('data-title') === name) {
+          dex.style.display = 'block';
+        } else {
+          dex.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const speciesElements = document.querySelectorAll('.species');
+
+    speciesElements.forEach(function(species) {
+      species.addEventListener('click', function() {
+        speciesElements.forEach(function(s) {
+          s.classList.remove('selected');
+        });
+        
+        species.classList.add('selected');
+      });
+    });
+  });
+</script>
+
+

@@ -28,6 +28,7 @@
     background: var(--mu);
     transform: translateY(10px); 
     box-shadow: 0px -10px 0px 0px white;
+    cursor: pointer;
   }
 
   .book .text {

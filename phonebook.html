@@ -12,31 +12,17 @@ permalink: /phonebook
       <col style="width: 15%;"> 
     </colgroup>
     <tr>
-      <td class="header">
-        name
-      </td>
-      <td class="header">
-        profession
-      </td>
-      <td class="header">
-        contact
-      </td>
-      <td class="header">
-        room
-      </td>
+      <th>name</th>
+      <th>profession</th>
+      <th>contact</th>
+      <th>room</th>
     </tr>
 
     {% for item in site.data.phonebook %}
       <tr>
-        <td>
-          {{ item.name }}
-        </td>
-        <td>
-          {{ item.title }}
-        </td>
-        <td>
-          {{ item.contact }}
-        </td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.contact }}</td>
         <td>
           <a href="/apartment/{{ item.name }}">{{ item.room }}</a>
         </td>

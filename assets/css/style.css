@@ -40,9 +40,8 @@ hr {
   color: var(--mu);
 }
 
-h1 {
-  all: unset;
-  font-weight: bold;
+h1, h2, h3 {
+  margin: 0;
 }
 
 table {
@@ -56,7 +55,7 @@ td {
   background: var(--mu);
 }
 
-.header {
+th {
   background: var(--gu);
   color: var(--vu);
 }
@@ -129,8 +128,8 @@ nav a:hover, .current {
 }
 
 .path {
-  margin-bottom: 20px;
   background: var(--mu);
+  margin-bottom: 10px;
 }
 
 @font-face {
