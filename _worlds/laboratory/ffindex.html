@@ -13,8 +13,8 @@ contributor:
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ffindex.css">
 </head>
 
-<div class="block">
-  <center><span style="font-size: 1.25em; font-weight: bold ">fauna/flora index</span>&nbsp;(<a href="https://tally.so/r/npz6rb" target="_blank">submit here</a>)</center>
+<div class="row" style="align-items: center; justify-content: center; background: var(--mu); height: auto; padding: 2.5px">
+  <span style="font-size: 1.25em; font-weight: bold;">fauna/flora index</span><span>(<a href="https://tally.so/r/npz6rb" target="_blank">submit here</a>)</span>
 </div>
 
 <div class="row">
@@ -23,7 +23,7 @@ contributor:
     <div class="dex_list">
       {% for k in site.data.ffindex %}
         {% if k.type == "fauna" %}
-          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div>&nbsp;<div>{{ k.species }}</div></div>
+          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div><div>{{ k.species }}</div></div>
         {% endif %}
       {% endfor %}
     </div>
@@ -49,9 +49,9 @@ contributor:
               <td>discovered by</td>
               <td>
                 {% if k.credit_url %}
-                  <a href="{{ k.credit_url }}" target="_blank">{{ k.credit_name }}</a>
+                  <a href="{{ k.credit_url }}" target="_blank">{{ k.contributor }}</a>
                 {% else %}
-                   {{ k.credit_name }}
+                   {{ k.contributor }}
                 {% endif %}
               </td>
             </tr>
@@ -70,7 +70,7 @@ contributor:
       <div class="dex_list">
       {% for k in site.data.ffindex %}
         {% if k.type == "flora" %}
-          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div>&nbsp;<div>{{ k.species }}</div></div>
+          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div><div>{{ k.species }}</div></div>
         {% endif %}
       {% endfor %}
     </div>
