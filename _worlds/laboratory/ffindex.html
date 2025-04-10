@@ -23,20 +23,21 @@ contributor:
   <div class="content_container">
     <div class="tab_content" id="content-fauna">
       <div class="block list">
-        {% for fauna in site.data.ffindex %}
-          {% if fauna.type == "fauna" %}
-            <div class="list_item" data-name="{{ fauna.species }}">
-              <span style="color: tomato">#{{ forloop.index }}</span>
-              {{ fauna.species }}
-            </div>
-          {% endif %}
+        {% assign faunaList = site.data.ffindex | where: "type", "fauna" %}
+        {% for fauna in faunaList %}
+          <div class="list_item" data-name="{{ fauna.species }}">
+            <span style="color: tomato">#{{ forloop.index }}</span>
+            {{ fauna.species }}
+          </div>
         {% endfor %}
       </div>
       <div class="row">
-        {% for fauna in site.data.ffindex %}
+        {% for fauna in faunaList %}
           <div class="dex" data-title="{{ fauna.species }}" style="display: none">
             <div class="row dex_style">
-            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="{{ fauna.image }}"></div>
+              <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px">
+                <img src="{{ fauna.image }}">
+              </div>
               <div class="block">
                 <table>
                   <tr><th colspan="2" style="color: ivory">#{{ forloop.index }} {{ fauna.species }}</th></tr>
@@ -54,7 +55,7 @@ contributor:
                       {% if fauna.credit_url %}
                         <a href="{{ fauna.credit_url }}" target="_blank">{{ fauna.contributor }}</a>
                       {% else %}
-                         {{ k.contributor }}
+                         {{ fauna.contributor }}
                       {% endif %}
                     </td>
                   </tr>
@@ -71,20 +72,21 @@ contributor:
 
     <div class="tab_content" id="content-flora">
       <div class="block list">
-        {% for flora in site.data.ffindex %}
-          {% if flora.type == "flora" %}
-            <div class="list_item" data-name="{{ flora.species }}">
-              <span style="color: tomato">#{{ forloop.index }}</span>
-              {{ flora.species }}
-            </div>
-          {% endif %}
+        {% assign floraList = site.data.ffindex | where: "type", "flora" %}
+        {% for flora in floraList %}
+          <div class="list_item" data-name="{{ flora.species }}">
+            <span style="color: tomato">#{{ forloop.index }}</span>
+            {{ flora.species }}
+          </div>
         {% endfor %}
       </div>
       <div class="row">
-        {% for flora in site.data.ffindex %}
+        {% for flora in floraList %}
           <div class="dex" data-title="{{ flora.species }}" style="display: none">
             <div class="row dex_style">
-            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="{{ flora.image }}"></div>
+              <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px">
+                <img src="{{ flora.image }}">
+              </div>
               <div class="block">
                 <table>
                   <tr><th colspan="2" style="color: ivory">#{{ forloop.index }} {{ flora.species }}</th></tr>
@@ -126,25 +128,25 @@ contributor:
 
 <script>
   window.onload = function() {
-  showTab('fauna');
+    showTab('fauna');
   };
 
   function showTab(tabId) {
-      const allTabs = document.querySelectorAll('.tab');
-      const allTabContents = document.querySelectorAll('.tab_content');
-      
-      allTabs.forEach(tab => tab.classList.remove('active'));
-      allTabContents.forEach(content => content.classList.remove('active'));
+    const allTabs = document.querySelectorAll('.tab');
+    const allTabContents = document.querySelectorAll('.tab_content');
+    
+    allTabs.forEach(tab => tab.classList.remove('active'));
+    allTabContents.forEach(content => content.classList.remove('active'));
 
-      const allListItems = document.querySelectorAll('.list_item');
-      const allDexItems = document.querySelectorAll('.dex');
-      allListItems.forEach(item => item.classList.remove('selected'));
-      allDexItems.forEach(dex => dex.style.display = 'none');
+    const allListItems = document.querySelectorAll('.list_item');
+    const allDexItems = document.querySelectorAll('.dex');
+    allListItems.forEach(item => item.classList.remove('selected'));
+    allDexItems.forEach(dex => dex.style.display = 'none');
 
-      const activeTab = document.getElementById('tab-' + tabId);
-      const activeTabContent = document.getElementById('content-' + tabId);
-      activeTab.classList.add('active');
-      activeTabContent.classList.add('active');
+    const activeTab = document.getElementById('tab-' + tabId);
+    const activeTabContent = document.getElementById('content-' + tabId);
+    activeTab.classList.add('active');
+    activeTabContent.classList.add('active');
   }
 
   const species = document.querySelectorAll('.list_item');
@@ -178,5 +180,3 @@ contributor:
     });
   });
 </script>
-
-
