@@ -1,155 +1,89 @@
-:root {
-  --shu: olive;
-  --mu: PaleGoldenRod;
-  --ku: tomato;
+  :root {
+    --shu: olive;
+    --mu: PaleGoldenRod;
+    --ku: tomato;
 
-  --gu: DarkKhaki;
-  --vu: beige;
-}
-
-#container {
-  width: 1000px;
-  height: 85vh;
-  align-items: center;
-  justify-content: center;
-}
-
-table {
-  table-layout: auto;
-}
-
-.row {
-  gap: 20px;
-  padding: 10px;
-  height: 70vh;
-  background: ivory;
-  box-shadow: 5px 5px 0px 0px #E5DF9E;
-}
-
-.dex_container {
-  flex: 4;
-  padding: 30px;
-}
-
-.dex_row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr auto;
-  height: 100%;
-}
-
-.dex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.dex_info img {
-  max-width: 100%;
-  max-height: 250px;
-}
-
-.dex_info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dex_description {
-  grid-column: 1 / span 2;
-  padding: 10px;
-  margin: 5px;
-  max-height: 150px;
-  overflow: scroll;
-  background: white;
-}
-
-.dex_list {
-  display: flex;
-  overflow: scroll;
-  flex-direction: column;
-}
-
-.dex_title {
-  text-align: center;
-  font-weight: bold;
-  background: var(--gu);
-  color: whitesmoke;
-  padding: 2.5px;
-}
-
-.fauna, .flora {
-  background: var(--vu);
-}
-
-.species {
-  display: flex;
-  padding: 5px;
-  flex-direction: row;
-  gap: 1em;
-}
-
-.species:hover, .species.selected {
-  cursor: pointer;
-  background: var(--mu);
-}
-
-@media only screen and (max-width: 1000px) {
-  #container {
-    width: 98%;
-    height: 95vh;
+    --gu: DarkKhaki;
+    --vu: darkkhaki;
   }
 
- .row {
-    flex-wrap: wrap;
-    margin-top: 10px;
-    gap: 0px;
-    height: auto;
+  ::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 250px;
+  }
+
+  .path {
+    background: none;
+    color: palegoldenrod;
+    --ku: beige;
   }
 
   .block {
-    flex: 100%;
+    margin: 0;
   }
 
-  .dex_container {
-    height: 60vh;
+  .tab {
+    margin-right: 5px;
+    padding: 2.5px;
+    width: 100px;
+    cursor: pointer;
+    background: palegoldenrod;
   }
 
-  .dex_list {
-    flex-direction: row;
-    height: auto;
+  .tab_content {
+    display: none;
+    padding: 10px;
+    background: beige;
   }
 
-  .species {
-    flex-direction: column;
-    text-align: center;
-    gap: 5px;
-    min-width: 80px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .dex_container {
-    padding: 0px;
+  .tab.active {
+    background: beige;
   }
 
-  .dex_row {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto; 
+  .tab_content.active {
+    display: block;
   }
 
-  .dex_info {
-    grid-column: 1 / span 2;
-    overflow: visible;
+  .list {
+    display: flex;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+    margin: 10px;
+    background: palegoldenrod;
+    background-clip: content-box; 
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
   }
 
-  .dex_info img {
-    max-width: 300px;
-    max-height: 20vh;
+  .list_item {
+    background: ivory;
+    text-wrap: nowrap;
+    margin: 4px;
+    padding: 1px;
+    border: solid 1px ivory;
   }
 
-  .dex_description {
-    max-height: 120px;
+  .list_item:hover {
+    border: solid 1px darkkhaki;
+    cursor: pointer;
   }
-}
+
+ .list_item.selected {
+    border: solid 1px tomato;
+ }
+
+ .dex_style {
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 20px;
+ }
+
+ .description {
+    background: palegoldenrod;
+    padding: 10px;
+ }
