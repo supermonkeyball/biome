@@ -17,106 +17,118 @@ contributor:
   <div class="row">
     <div class="tab" id="tab-fauna" onclick="showTab('fauna')">🐚fauna</div>
     <div class="tab" id="tab-flora" onclick="showTab('flora')">🌷flora</div>
-    <div class="tab" id="tab-submit" onclick="showTab('submit')">📥submit</div>
+    <div class="tab" id="tab-submit" style="margin-left: auto; margin-right: 0;" onclick="showTab('submit')">📥submit</div>
   </div>
 
   <div class="content_container">
     <div class="tab_content" id="content-fauna">
-      <div class="block list">
-        {% assign faunaList = site.data.ffindex | where: "type", "fauna" %}
-        {% for fauna in faunaList %}
-          <div class="list_item" data-name="{{ fauna.species }}">
-            <span style="color: tomato">#{{ forloop.index }}</span>
-            {{ fauna.species }}
-          </div>
-        {% endfor %}
-      </div>
-      <div class="row">
-        {% for fauna in faunaList %}
-          <div class="dex" data-title="{{ fauna.species }}" style="display: none">
-            <div class="row dex_style">
-              <div class="block" style="display: flex; justify-content: center; align-items: center;">
-                <img src="{{ fauna.image }}">
+      <div class="row" style="align-items: center">
+        <div class="block list">
+          {% assign faunaList = site.data.ffindex | where: "type", "fauna" %}
+          {% for fauna in faunaList %}
+            <div class="list_item" data-name="{{ fauna.species }}">
+              <div style="color: tomato">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</div>
+              <div>{{ fauna.species }}</div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="block" style="flex: 4">
+          {% for fauna in faunaList %}
+            <div class="dex" data-title="{{ fauna.species }}" style="display: none">
+              <div class="row dex_style">
+                <div class="block" style="display: flex; justify-content: center; align-items: center;">
+                  <img src="{{ fauna.image }}">
+                </div>
+                <div class="block">
+                  <table>
+                    <tr>
+                      <th colspan="2" style="color: ivory">
+                        FA-{{ forloop.index | prepend: '00' | slice: -2, 2 }} {{ fauna.species }}
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>lives in..</td>
+                      <td>{{ fauna.habitat }}</td>
+                    </tr>
+                    <tr>
+                      <td>eats...</td>
+                      <td>{{ fauna.diet }}</td>
+                    </tr>
+                    <tr>
+                      <td>discovered by</td>
+                      <td>
+                        {% if fauna.credit_url %}
+                          <a href="{{ fauna.credit_url }}" target="_blank">{{ fauna.contributor }}</a>
+                        {% else %}
+                           {{ fauna.contributor }}
+                        {% endif %}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
               </div>
-              <div class="block">
-                <table>
-                  <tr><th colspan="2" style="color: ivory">#{{ forloop.index }} {{ fauna.species }}</th></tr>
-                  <tr>
-                    <td>lives in..</td>
-                    <td>{{ fauna.habitat }}</td>
-                  </tr>
-                  <tr>
-                    <td>eats...</td>
-                    <td>{{ fauna.diet }}</td>
-                  </tr>
-                  <tr>
-                    <td>discovered by</td>
-                    <td>
-                      {% if fauna.credit_url %}
-                        <a href="{{ fauna.credit_url }}" target="_blank">{{ fauna.contributor }}</a>
-                      {% else %}
-                         {{ fauna.contributor }}
-                      {% endif %}
-                    </td>
-                  </tr>
-                </table>
+              <div class="row dex_style">
+                <div class="block description">{{ fauna.description }}</div>
               </div>
             </div>
-            <div class="row dex_style">
-              <div class="block description">{{ fauna.description }}</div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>    
+          {% endfor %}
+        </div> 
+      </div>   
     </div>
 
     <div class="tab_content" id="content-flora">
-      <div class="block list">
-        {% assign floraList = site.data.ffindex | where: "type", "flora" %}
-        {% for flora in floraList %}
-          <div class="list_item" data-name="{{ flora.species }}">
-            <span style="color: tomato">#{{ forloop.index }}</span>
-            {{ flora.species }}
-          </div>
-        {% endfor %}
-      </div>
-      <div class="row">
-        {% for flora in floraList %}
-          <div class="dex" data-title="{{ flora.species }}" style="display: none">
-            <div class="row dex_style">
-              <div class="block" style="display: flex; justify-content: center; align-items: center;">
-                <img src="{{ flora.image }}">
+      <div class="row" style="align-items: center">
+        <div class="block list">
+          {% assign floraList = site.data.ffindex | where: "type", "flora" %}
+          {% for flora in floraList %}
+            <div class="list_item" data-name="{{ flora.species }}">
+              <div style="color: tomato">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</div>
+              <div>{{ flora.species }}</div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="block" style="flex: 4">
+          {% for flora in floraList %}
+            <div class="dex" data-title="{{ flora.species }}" style="display: none">
+              <div class="row dex_style">
+                <div class="block" style="display: flex; justify-content: center; align-items: center;">
+                  <img src="{{ flora.image }}">
+                </div>
+                <div class="block">
+                  <table>
+                    <tr>
+                      <th colspan="2" style="color: ivory">
+                       FL-{{ forloop.index | prepend: '00' | slice: -2, 2 }} {{ fauna.species }}{{ flora.species }}
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>lives in..</td>
+                      <td>{{ flora.habitat }}</td>
+                    </tr>
+                    <tr>
+                      <td>eats...</td>
+                      <td>{{ flora.diet }}</td>
+                    </tr>
+                    <tr>
+                      <td>discovered by</td>
+                      <td>
+                        {% if flora.credit_url %}
+                          <a href="{{ flora.credit_url }}" target="_blank">{{ flora.contributor }}</a>
+                        {% else %}
+                           {{ flora.contributor }}
+                        {% endif %}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
               </div>
-              <div class="block">
-                <table>
-                  <tr><th colspan="2" style="color: ivory">#{{ forloop.index }} {{ flora.species }}</th></tr>
-                  <tr>
-                    <td>lives in..</td>
-                    <td>{{ flora.habitat }}</td>
-                  </tr>
-                  <tr>
-                    <td>eats...</td>
-                    <td>{{ flora.diet }}</td>
-                  </tr>
-                  <tr>
-                    <td>discovered by</td>
-                    <td>
-                      {% if flora.credit_url %}
-                        <a href="{{ flora.credit_url }}" target="_blank">{{ flora.contributor }}</a>
-                      {% else %}
-                         {{ flora.contributor }}
-                      {% endif %}
-                    </td>
-                  </tr>
-                </table>
+              <div class="row dex_style">
+                <div class="block description">{{ flora.description }}</div>
               </div>
             </div>
-            <div class="row dex_style">
-              <div class="block description">{{ flora.description }}</div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>    
+          {% endfor %}
+        </div>  
+      </div>  
     </div>
 
     <div class="tab_content" id="content-submit">
