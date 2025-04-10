@@ -8,6 +8,7 @@
 }
 
 #container {
+  width: 1000px;
   height: 85vh;
   align-items: center;
   justify-content: center;
@@ -17,15 +18,12 @@ table {
   table-layout: auto;
 }
 
-#container {
-  width: 1000px;
-}
-
 .row {
   gap: 20px;
   padding: 10px;
   height: 70vh;
-  background: white;
+  background: ivory;
+  box-shadow: 5px 5px 0px 0px #E5DF9E;
 }
 
 .dex_container {
@@ -64,7 +62,7 @@ table {
   margin: 5px;
   max-height: 150px;
   overflow: scroll;
-  background: whitesmoke;
+  background: white;
 }
 
 .dex_list {
