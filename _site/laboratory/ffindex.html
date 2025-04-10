@@ -10,557 +10,780 @@
   <body>
 <div class="path"><a href="/worldmap">worldmap</a>/<a href="/laboratory">laboratory</a>/ffindex</div>
     <div id="container">
-      <style>
-  :root {
-    --shu: olive;
-    --mu: PaleGoldenRod;
-    --ku: tomato;
+      <head>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/ffindex.css">
+</head>
 
-    --gu: DarkKhaki;
-    --vu: beige;
-  }
-
-  #container {
-    width: 1000px;
-    height: 85vh;
-    align-items: center;
-    justify-content: center;
-  }
-
-  table {
-    table-layout: auto;
-  }
-
-  .row {
-    gap: 20px;
-    padding: 10px;
-    height: 70vh;
-    background: ivory;
-    box-shadow: 5px 5px 0px 0px #E5DF9E;
-  }
-
-  .dex_container {
-    flex: 4;
-  }
-
-  .dex_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr auto;
-    height: 100%;
-  }
-
-  .dex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  .dex_info img {
-    max-width: 100%;
-    max-height: 250px;
-  }
-
-  .dex_info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .dex_description {
-    grid-column: 1 / span 2;
-    padding: 10px;
-    margin: 5px;
-    max-height: 150px;
-    overflow: scroll;
-    background: var(--vu);
-  }
-
-  .dex_list {
-    display: flex;
-    overflow: scroll;
-    flex-direction: column;
-  }
-
-  .dex_title {
-    text-align: center;
-    font-weight: bold;
-    background: var(--gu);
-    color: whitesmoke;
-    padding: 2.5px;
-  }
-
-  .fauna, .flora {
-    background: var(--vu);
-  }
-
-  .species {
-    display: flex;
-    padding: 5px;
-    flex-direction: row;
-    gap: 1em;
-  }
-
-  .species:hover, .species.selected {
-    cursor: pointer;
-    background: var(--mu);
-  }
-
-  @media only screen and (max-width: 1000px) {
-    #container {
-      width: 98%;
-      height: 95vh;
-    }
-
-   .row {
-      flex-wrap: wrap;
-      margin-top: 10px;
-      gap: 0px;
-      height: auto;
-    }
-
-    .block {
-      flex: 100%;
-    }
-
-    .dex_container {
-      height: 60vh;
-    }
-
-    .dex_list {
-      flex-direction: row;
-      height: auto;
-    }
-
-    .species {
-      flex-direction: column;
-      text-align: center;
-      gap: 5px;
-      min-width: 80px;
-      text-overflow: ellipsis;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    .dex_container {
-      padding: 0px;
-    }
-
-    .dex_row {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto; 
-    }
-
-    .dex_info {
-      grid-column: 1 / span 2;
-      overflow: visible;
-    }
-
-    .dex_info img {
-      max-width: 300px;
-      max-height: 20vh;
-    }
-  }
-</style>
-
-<div class="row" style="align-items: center; justify-content: center; background: var(--mu); height: auto; padding: 2.5px">
-  <span style="font-size: 1.25em; font-weight: bold;">fauna/flora index</span><span>(<a href="https://tally.so/r/npz6rb" target="_blank">submit here</a>)</span>
-</div>
-
-<div class="row">
-  <div class="block fauna">
-    <div class="dex_title">fauna</div>
-    <div class="dex_list">
-      
-        
-          <div class="species" data-name="circui"><div><span style="color: var(--ku)">#1</span></div><div>circui</div></div>
-        
-      
-        
-          <div class="species" data-name="eye deer"><div><span style="color: var(--ku)">#2</span></div><div>eye deer</div></div>
-        
-      
-        
-          <div class="species" data-name="hander"><div><span style="color: var(--ku)">#3</span></div><div>hander</div></div>
-        
-      
-        
-          <div class="species" data-name="lonliest corona"><div><span style="color: var(--ku)">#4</span></div><div>lonliest corona</div></div>
-        
-      
-        
-          <div class="species" data-name="mete bunny"><div><span style="color: var(--ku)">#5</span></div><div>mete bunny</div></div>
-        
-      
-        
-          <div class="species" data-name="the trill"><div><span style="color: var(--ku)">#6</span></div><div>the trill</div></div>
-        
-      
-        
-          <div class="species" data-name="VESSEL952"><div><span style="color: var(--ku)">#7</span></div><div>VESSEL952</div></div>
-        
-      
-        
-          <div class="species" data-name="winj"><div><span style="color: var(--ku)">#8</span></div><div>winj</div></div>
-        
-      
-        
-          <div class="species" data-name="worm-girl"><div><span style="color: var(--ku)">#9</span></div><div>worm-girl</div></div>
-        
-      
-        
-      
-    </div>
+<div>
+  <div class="row">
+    <div class="tab" id="tab-fauna" onclick="showTab('fauna')">🐚fauna</div>
+    <div class="tab" id="tab-flora" onclick="showTab('flora')">🌷flora</div>
+    <div class="tab" id="tab-submit" onclick="showTab('submit')">📥submit</div>
   </div>
 
-<div class="block dex_container">
-  
-    <div class="dex" data-title="circui" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/ocspin.gif?id=Ldyeay&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxkeWVheSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDIzMzc1M30.z1wg0duMuxCz8UDPQUSZdJwhT2AThNpHulasx_dVyfE&signature=9c60748c6d6e955a24edbb9af49f536f6defd455da3a4dc186a3f1fccab6b32d"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#1 circui</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>the collective unconscious</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>thoughts, dreams, wishes, memories</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="https://x.com/chronlk" target="_blank">evie</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          have you ever woken up perplexed by a dream you can't quite recall? or perhaps you experienced an unsettling sense of familiarity with something you've never encountered before? you may have crossed paths with a circui (plural: circuie). 
-these  enigmatic creatures wander through our mindscapes,often affecting our memory and psyche. once believed to be figments of collective hallucination, advancements in dream visualization technology have now allowed us to identify these hungry little culprits.
-        </div>
+  <div class="content_container">
+    <div class="tab_content" id="content-fauna">
+      <div class="block list">
+        
+          
+            <div class="list_item" data-name="circui">
+              <span style="color: tomato">#1</span>
+              circui
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="eye deer">
+              <span style="color: tomato">#2</span>
+              eye deer
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="hander">
+              <span style="color: tomato">#3</span>
+              hander
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="lonliest corona">
+              <span style="color: tomato">#4</span>
+              lonliest corona
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="mete bunny">
+              <span style="color: tomato">#5</span>
+              mete bunny
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="the trill">
+              <span style="color: tomato">#6</span>
+              the trill
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="VESSEL952">
+              <span style="color: tomato">#7</span>
+              VESSEL952
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="winj">
+              <span style="color: tomato">#8</span>
+              winj
+            </div>
+          
+        
+          
+            <div class="list_item" data-name="worm-girl">
+              <span style="color: tomato">#9</span>
+              worm-girl
+            </div>
+          
+        
+          
+        
       </div>
-    </div>
-  
-    <div class="dex" data-title="eye deer" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/eyedeer.png?id=DVYyGb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkRWWXlHYiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDE1ODk2Nn0.Odn91qv4Zmo_-gx7GO_aGCXUy-eQ3rmIwtY1p-ch3XE&signature=f088db63ca6c37168314b18fdb58f70e0fd61da336daef362030a80c7b031ead"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#2 eye deer</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>deepest parts of forests</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>rare plants and berries</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="https://sunnysatori.tumblr.com" target="_blank">sunny</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          They can walk on either two legs or four and are blessed with excellent sight that allows them to detect beings invisible to the naked eye. However, this also makes them extremely nervous and skittish creatures. It is said that if one trusts you enough, you will be granted endless inspiration.
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="hander" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/handdance.gif?id=VZ1y7j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZaMXk3aiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.Iauw0fz0CZHCROwKInXCh3dpgsL49pdDua-bFF7EVXY&signature=ba789e47a09978916e38426305d5f52ad8a2b5ac6cabcbc9bc1e33613c14ec2a"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#3 hander</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>forest area</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>dust particles</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="https://x.com/Valendar_" target="_blank">valendar</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          they exist everywhere but like to spend time in forest areas for fun. you can only see them in you take a special medicine cus they only exist in the hander dimension.
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="lonliest corona" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/hellish-spin.gif?id=g5g0zJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imc1ZzB6SiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.C99aDH_CWMKGCYaceSuEET8sHuOTQnyIEFQ1QfH2riA&signature=3e252ba758ed8fbf6bb1eb795139bd7a756f062d930cab2b1e8fecb428254102"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#4 lonliest corona</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>right now a kind library</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>bacteria and air floaters</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="/apartment/morti∞" target="_blank">morti∞</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          Usually super microscopic, all impossible to see, but this germ grew to the size of a grapefruit.It's just a simple cold, maybe a runny nose for a week, but due to its size, it can no longer infect anyone. No germ has ever gotten this big before, too big to see any of its friends anymore. No germ has also ever gotten this lonely before.
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="mete bunny" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/IMG_5220.png?id=PA44Mx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBBNDRNeCIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzQ2OH0.Aw-tlA31Tk9hDqP9BqnOGLrarSMbBqz5A51laEKeQ58&signature=43a012db6cdb6bb1340f0023c2191484b6c5f0d0cbdc822c645d753cb7682861"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#5 mete bunny</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>grass, forests, etc. love sweet smelling  flowers</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>carnivorous, usually smaller predators or  chunks from larger fauna</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="https://ophanimkei.com/" target="_blank">mala</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          their fur is always wet and resembles raw meat.
+      <div class="row">
+        
+          <div class="dex" data-title="circui" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/ocspin.gif?id=Ldyeay&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxkeWVheSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDIzMzc1M30.z1wg0duMuxCz8UDPQUSZdJwhT2AThNpHulasx_dVyfE&signature=9c60748c6d6e955a24edbb9af49f536f6defd455da3a4dc186a3f1fccab6b32d"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#1 circui</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>the collective unconscious</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>thoughts, dreams, wishes, memories</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://x.com/chronlk" target="_blank">evie</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">have you ever woken up perplexed by a dream you can't quite recall? or perhaps you experienced an unsettling sense of familiarity with something you've never encountered before? you may have crossed paths with a circui (plural: circuie). 
+these  enigmatic creatures wander through our mindscapes,often affecting our memory and psyche. once believed to be figments of collective hallucination, advancements in dream visualization technology have now allowed us to identify these hungry little culprits.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="eye deer" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/eyedeer.png?id=DVYyGb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkRWWXlHYiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDE1ODk2Nn0.Odn91qv4Zmo_-gx7GO_aGCXUy-eQ3rmIwtY1p-ch3XE&signature=f088db63ca6c37168314b18fdb58f70e0fd61da336daef362030a80c7b031ead"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#2 eye deer</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>deepest parts of forests</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>rare plants and berries</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://sunnysatori.tumblr.com" target="_blank">sunny</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">They can walk on either two legs or four and are blessed with excellent sight that allows them to detect beings invisible to the naked eye. However, this also makes them extremely nervous and skittish creatures. It is said that if one trusts you enough, you will be granted endless inspiration.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="hander" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/handdance.gif?id=VZ1y7j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZaMXk3aiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.Iauw0fz0CZHCROwKInXCh3dpgsL49pdDua-bFF7EVXY&signature=ba789e47a09978916e38426305d5f52ad8a2b5ac6cabcbc9bc1e33613c14ec2a"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#3 hander</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>forest area</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>dust particles</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://x.com/Valendar_" target="_blank">valendar</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">they exist everywhere but like to spend time in forest areas for fun. you can only see them in you take a special medicine cus they only exist in the hander dimension.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="lonliest corona" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/hellish-spin.gif?id=g5g0zJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imc1ZzB6SiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.C99aDH_CWMKGCYaceSuEET8sHuOTQnyIEFQ1QfH2riA&signature=3e252ba758ed8fbf6bb1eb795139bd7a756f062d930cab2b1e8fecb428254102"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#4 lonliest corona</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>right now a kind library</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>bacteria and air floaters</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="/apartment/morti∞" target="_blank">morti∞</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">Usually super microscopic, all impossible to see, but this germ grew to the size of a grapefruit.It's just a simple cold, maybe a runny nose for a week, but due to its size, it can no longer infect anyone. No germ has ever gotten this big before, too big to see any of its friends anymore. No germ has also ever gotten this lonely before.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="mete bunny" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/IMG_5220.png?id=PA44Mx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBBNDRNeCIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzQ2OH0.Aw-tlA31Tk9hDqP9BqnOGLrarSMbBqz5A51laEKeQ58&signature=43a012db6cdb6bb1340f0023c2191484b6c5f0d0cbdc822c645d753cb7682861"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#5 mete bunny</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>grass, forests, etc. love sweet smelling  flowers</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>carnivorous, usually smaller predators or  chunks from larger fauna</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://ophanimkei.com/" target="_blank">mala</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">their fur is always wet and resembles raw meat.
 they smell like normal rabbits which attracts prey 
 and those who find them cute. they roll over like
 dogs in hope you’ll rub their tummy then chomp at 
-your limbs. 
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="the trill" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/1000006480.jpg?id=9day95&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkYXk5NSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDE1OTgyNH0.4O963Ub3u_VeiHSzFgXF9jNf4oefD50QZ1kTSFwJtZ0&signature=0d1e1e5131cbc4c16dc5db9ed037f8ad855615de57d43d2cf096940fae9d859c"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#6 the trill</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>bushlands</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>termites</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                   tawuni
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          a creature wrought with ambient stress, yet it moves in a terrifyingly deliberate manner under threat.
+your limbs. </div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="the trill" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/1000006480.jpg?id=9day95&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkYXk5NSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDE1OTgyNH0.4O963Ub3u_VeiHSzFgXF9jNf4oefD50QZ1kTSFwJtZ0&signature=0d1e1e5131cbc4c16dc5db9ed037f8ad855615de57d43d2cf096940fae9d859c"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#6 the trill</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>bushlands</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>termites</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                         
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">a creature wrought with ambient stress, yet it moves in a terrifyingly deliberate manner under threat.
 its vocalizations are frequent,however fall outside of most ranges of hearing.
-likes to watch other creatures from far away, but do not approach.
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="VESSEL952" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/indexgif.gif?id=WAB9kR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldBQjlrUiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDI0NDg0MH0.e2Vpt_7u5wRPV8CYOg0x2bh7O5_liD32Ct1gV1g_1U4&signature=78628c4e4c1d99f439dd33df55d2c081af610795e9bd41960fa0f17df90073f2"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#7 VESSEL952</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>n/a</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>nutrients, so far</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="https://x.com/VESSEL3_" target="_blank">VESSEL3</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          this is a vessel currently in its final stages of development.it has so far shown to be docile and obedient, which is common for vessels with a beating heart. judging from its spiral eye, it will be confused and slow to adapting to the world once finished developing.
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="winj" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/winj.png?id=NAd1vp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5BZDF2cCIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.YoipDcpMQB8f1UtyDhz-X3BjhwkqwYS7V-GWiJPSYI4&signature=c0151134b9d58d382a53dae6bb372a2d27544588c2a003ea8544db6060a7e383"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#8 winj</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>wet caves</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>algae and slimes</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="https://ribo.zone" target="_blank">ribose</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          they live mostly underground, making their nests at the edges of subterranean lakes and rivers. if the weather is just right (cool, misty, not too much moonlight), winj can sometimes be spotted on the surface.
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="worm-girl" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/wormgirl.png?id=0Ejg19&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBFamcxOSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.y-0Pj4wsd0rZR0kj4i3RxAnq0PEPQnmbsk0jiNAL1UU&signature=d7455adbeb65fc9073acd63264fdcd8f1ba0f1666c5b53e7866af17fe7ab2896"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#9 worm-girl</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>crevices</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>smaller bugs</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="/apartment/kyu" target="_blank">kyu</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          mix of caterpillar and shrimp. they live both on land and in water. they have pointy feelers and shiny round tails. known for being escape artists.
-        </div>
-      </div>
-    </div>
-  
-    <div class="dex" data-title="zarqa" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="https://storage.tally.so/private/2.png?id=BG9vzA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJHOXZ6QSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA1ODIyOX0.Y8pQn7136YRtHfDji45XXAUqH3jYU5FBzcCRK-oVndQ&signature=849b4d5167a8f0b400e00a96d0e66ae7a7e8b942e9bf1ff02a054400af4bbfa0"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#10 zarqa</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>the underside of cliffs, branches, and hanging objects in cold, dry areas with not that much wind</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>light that bounces off the floor</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                
-                  <a href="/apartment/demo" target="_blank">demo</a>
-                
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          a paper thin and almost transparent flower that surrounds itself with a faint black haze.
+likes to watch other creatures from far away, but do not approach.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="VESSEL952" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/indexgif.gif?id=WAB9kR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldBQjlrUiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDI0NDg0MH0.e2Vpt_7u5wRPV8CYOg0x2bh7O5_liD32Ct1gV1g_1U4&signature=78628c4e4c1d99f439dd33df55d2c081af610795e9bd41960fa0f17df90073f2"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#7 VESSEL952</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>n/a</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>nutrients, so far</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://x.com/VESSEL3_" target="_blank">VESSEL3</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">this is a vessel currently in its final stages of development.it has so far shown to be docile and obedient, which is common for vessels with a beating heart. judging from its spiral eye, it will be confused and slow to adapting to the world once finished developing.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="winj" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/winj.png?id=NAd1vp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5BZDF2cCIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.YoipDcpMQB8f1UtyDhz-X3BjhwkqwYS7V-GWiJPSYI4&signature=c0151134b9d58d382a53dae6bb372a2d27544588c2a003ea8544db6060a7e383"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#8 winj</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>wet caves</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>algae and slimes</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://ribo.zone" target="_blank">ribose</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">they live mostly underground, making their nests at the edges of subterranean lakes and rivers. if the weather is just right (cool, misty, not too much moonlight), winj can sometimes be spotted on the surface.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="worm-girl" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/wormgirl.png?id=0Ejg19&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBFamcxOSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.y-0Pj4wsd0rZR0kj4i3RxAnq0PEPQnmbsk0jiNAL1UU&signature=d7455adbeb65fc9073acd63264fdcd8f1ba0f1666c5b53e7866af17fe7ab2896"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#9 worm-girl</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>crevices</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>smaller bugs</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="/apartment/kyu" target="_blank">kyu</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">mix of caterpillar and shrimp. they live both on land and in water. they have pointy feelers and shiny round tails. known for being escape artists.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="zarqa" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/2.png?id=BG9vzA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJHOXZ6QSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA1ODIyOX0.Y8pQn7136YRtHfDji45XXAUqH3jYU5FBzcCRK-oVndQ&signature=849b4d5167a8f0b400e00a96d0e66ae7a7e8b942e9bf1ff02a054400af4bbfa0"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#10 zarqa</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>the underside of cliffs, branches, and hanging objects in cold, dry areas with not that much wind</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>light that bounces off the floor</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="/apartment/demo" target="_blank">demo</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">a paper thin and almost transparent flower that surrounds itself with a faint black haze.
 
 the black haze emanates from the flowers underside, making it difficult to spot. if you do see it, don't look for too long. it will make you feel *funny.*
 
-they're constantly shifting subtly in color and shape.
-        </div>
-      </div>
+they're constantly shifting subtly in color and shape.</div>
+            </div>
+          </div>
+        
+      </div>    
     </div>
-  
-</div>
 
-  <div class="block flora">
-    <div class="dex_title">flora</div>
-      <div class="dex_list">
-      
+    <div class="tab_content" id="content-flora">
+      <div class="block list">
         
-      
+          
         
-      
+          
         
-      
+          
         
-      
+          
         
-      
+          
         
-      
+          
         
-      
+          
         
-      
+          
         
-      
+          
         
-          <div class="species" data-name="zarqa"><div><span style="color: var(--ku)">#10</span></div><div>zarqa</div></div>
+          
+            <div class="list_item" data-name="zarqa">
+              <span style="color: tomato">#10</span>
+              zarqa
+            </div>
+          
         
-      
+      </div>
+      <div class="row">
+        
+          <div class="dex" data-title="circui" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/ocspin.gif?id=Ldyeay&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxkeWVheSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDIzMzc1M30.z1wg0duMuxCz8UDPQUSZdJwhT2AThNpHulasx_dVyfE&signature=9c60748c6d6e955a24edbb9af49f536f6defd455da3a4dc186a3f1fccab6b32d"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#1 circui</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>the collective unconscious</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>thoughts, dreams, wishes, memories</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://x.com/chronlk" target="_blank">evie</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">have you ever woken up perplexed by a dream you can't quite recall? or perhaps you experienced an unsettling sense of familiarity with something you've never encountered before? you may have crossed paths with a circui (plural: circuie). 
+these  enigmatic creatures wander through our mindscapes,often affecting our memory and psyche. once believed to be figments of collective hallucination, advancements in dream visualization technology have now allowed us to identify these hungry little culprits.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="eye deer" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/eyedeer.png?id=DVYyGb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkRWWXlHYiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDE1ODk2Nn0.Odn91qv4Zmo_-gx7GO_aGCXUy-eQ3rmIwtY1p-ch3XE&signature=f088db63ca6c37168314b18fdb58f70e0fd61da336daef362030a80c7b031ead"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#2 eye deer</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>deepest parts of forests</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>rare plants and berries</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://sunnysatori.tumblr.com" target="_blank">sunny</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">They can walk on either two legs or four and are blessed with excellent sight that allows them to detect beings invisible to the naked eye. However, this also makes them extremely nervous and skittish creatures. It is said that if one trusts you enough, you will be granted endless inspiration.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="hander" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/handdance.gif?id=VZ1y7j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZaMXk3aiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.Iauw0fz0CZHCROwKInXCh3dpgsL49pdDua-bFF7EVXY&signature=ba789e47a09978916e38426305d5f52ad8a2b5ac6cabcbc9bc1e33613c14ec2a"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#3 hander</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>forest area</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>dust particles</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://x.com/Valendar_" target="_blank">valendar</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">they exist everywhere but like to spend time in forest areas for fun. you can only see them in you take a special medicine cus they only exist in the hander dimension.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="lonliest corona" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/hellish-spin.gif?id=g5g0zJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imc1ZzB6SiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.C99aDH_CWMKGCYaceSuEET8sHuOTQnyIEFQ1QfH2riA&signature=3e252ba758ed8fbf6bb1eb795139bd7a756f062d930cab2b1e8fecb428254102"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#4 lonliest corona</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>right now a kind library</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>bacteria and air floaters</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="/apartment/morti∞" target="_blank">morti∞</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">Usually super microscopic, all impossible to see, but this germ grew to the size of a grapefruit.It's just a simple cold, maybe a runny nose for a week, but due to its size, it can no longer infect anyone. No germ has ever gotten this big before, too big to see any of its friends anymore. No germ has also ever gotten this lonely before.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="mete bunny" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/IMG_5220.png?id=PA44Mx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBBNDRNeCIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzQ2OH0.Aw-tlA31Tk9hDqP9BqnOGLrarSMbBqz5A51laEKeQ58&signature=43a012db6cdb6bb1340f0023c2191484b6c5f0d0cbdc822c645d753cb7682861"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#5 mete bunny</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>grass, forests, etc. love sweet smelling  flowers</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>carnivorous, usually smaller predators or  chunks from larger fauna</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://ophanimkei.com/" target="_blank">mala</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">their fur is always wet and resembles raw meat.
+they smell like normal rabbits which attracts prey 
+and those who find them cute. they roll over like
+dogs in hope you’ll rub their tummy then chomp at 
+your limbs. </div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="the trill" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/1000006480.jpg?id=9day95&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkYXk5NSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDE1OTgyNH0.4O963Ub3u_VeiHSzFgXF9jNf4oefD50QZ1kTSFwJtZ0&signature=0d1e1e5131cbc4c16dc5db9ed037f8ad855615de57d43d2cf096940fae9d859c"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#6 the trill</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>bushlands</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>termites</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                         tawuni
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">a creature wrought with ambient stress, yet it moves in a terrifyingly deliberate manner under threat.
+its vocalizations are frequent,however fall outside of most ranges of hearing.
+likes to watch other creatures from far away, but do not approach.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="VESSEL952" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/indexgif.gif?id=WAB9kR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldBQjlrUiIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDI0NDg0MH0.e2Vpt_7u5wRPV8CYOg0x2bh7O5_liD32Ct1gV1g_1U4&signature=78628c4e4c1d99f439dd33df55d2c081af610795e9bd41960fa0f17df90073f2"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#7 VESSEL952</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>n/a</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>nutrients, so far</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://x.com/VESSEL3_" target="_blank">VESSEL3</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">this is a vessel currently in its final stages of development.it has so far shown to be docile and obedient, which is common for vessels with a beating heart. judging from its spiral eye, it will be confused and slow to adapting to the world once finished developing.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="winj" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/winj.png?id=NAd1vp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5BZDF2cCIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.YoipDcpMQB8f1UtyDhz-X3BjhwkqwYS7V-GWiJPSYI4&signature=c0151134b9d58d382a53dae6bb372a2d27544588c2a003ea8544db6060a7e383"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#8 winj</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>wet caves</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>algae and slimes</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="https://ribo.zone" target="_blank">ribose</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">they live mostly underground, making their nests at the edges of subterranean lakes and rivers. if the weather is just right (cool, misty, not too much moonlight), winj can sometimes be spotted on the surface.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="worm-girl" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/wormgirl.png?id=0Ejg19&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBFamcxOSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA5MzAwN30.y-0Pj4wsd0rZR0kj4i3RxAnq0PEPQnmbsk0jiNAL1UU&signature=d7455adbeb65fc9073acd63264fdcd8f1ba0f1666c5b53e7866af17fe7ab2896"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#9 worm-girl</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>crevices</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>smaller bugs</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="/apartment/kyu" target="_blank">kyu</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">mix of caterpillar and shrimp. they live both on land and in water. they have pointy feelers and shiny round tails. known for being escape artists.</div>
+            </div>
+          </div>
+        
+          <div class="dex" data-title="zarqa" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="https://storage.tally.so/private/2.png?id=BG9vzA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJHOXZ6QSIsImZvcm1JZCI6Im5wejZyYiIsImlhdCI6MTc0NDA1ODIyOX0.Y8pQn7136YRtHfDji45XXAUqH3jYU5FBzcCRK-oVndQ&signature=849b4d5167a8f0b400e00a96d0e66ae7a7e8b942e9bf1ff02a054400af4bbfa0"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#10 zarqa</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>the underside of cliffs, branches, and hanging objects in cold, dry areas with not that much wind</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>light that bounces off the floor</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      
+                        <a href="/apartment/demo" target="_blank">demo</a>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">a paper thin and almost transparent flower that surrounds itself with a faint black haze.
+
+the black haze emanates from the flowers underside, making it difficult to spot. if you do see it, don't look for too long. it will make you feel *funny.*
+
+they're constantly shifting subtly in color and shape.</div>
+            </div>
+          </div>
+        
+      </div>    
+    </div>
+
+    <div class="tab_content" id="content-submit">
+      <iframe data-tally-src="https://tally.so/embed/npz6rb?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="636" frameborder="0" marginheight="0" marginwidth="0" title="fauna/flora index: submission"></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </div>
   </div>
 </div>
 
 <script>
-  const species = document.querySelectorAll('.species');
+  window.onload = function() {
+  showTab('fauna');
+  };
+
+  function showTab(tabId) {
+      const allTabs = document.querySelectorAll('.tab');
+      const allTabContents = document.querySelectorAll('.tab_content');
+      
+      allTabs.forEach(tab => tab.classList.remove('active'));
+      allTabContents.forEach(content => content.classList.remove('active'));
+
+      const allListItems = document.querySelectorAll('.list_item');
+      const allDexItems = document.querySelectorAll('.dex');
+      allListItems.forEach(item => item.classList.remove('selected'));
+      allDexItems.forEach(dex => dex.style.display = 'none');
+
+      const activeTab = document.getElementById('tab-' + tabId);
+      const activeTabContent = document.getElementById('content-' + tabId);
+      activeTab.classList.add('active');
+      activeTabContent.classList.add('active');
+  }
+
+  const species = document.querySelectorAll('.list_item');
 
   species.forEach(species => {
     species.addEventListener('click', () => {
@@ -578,7 +801,7 @@ they're constantly shifting subtly in color and shape.
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    const speciesElements = document.querySelectorAll('.species');
+    const speciesElements = document.querySelectorAll('.list_item');
 
     speciesElements.forEach(function(species) {
       species.addEventListener('click', function() {

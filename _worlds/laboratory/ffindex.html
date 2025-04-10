@@ -8,226 +8,146 @@ contributor:
   - kyu
   - dizzy
 ---
-<style>
-  :root {
-    --shu: olive;
-    --mu: PaleGoldenRod;
-    --ku: tomato;
+<head>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ffindex.css">
+</head>
 
-    --gu: DarkKhaki;
-    --vu: beige;
-  }
-
-  #container {
-    width: 1000px;
-    height: 85vh;
-    align-items: center;
-    justify-content: center;
-  }
-
-  table {
-    table-layout: auto;
-  }
-
-  .row {
-    gap: 20px;
-    padding: 10px;
-    height: 70vh;
-    background: ivory;
-    box-shadow: 5px 5px 0px 0px #E5DF9E;
-  }
-
-  .dex_container {
-    flex: 4;
-  }
-
-  .dex_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr auto;
-    height: 100%;
-  }
-
-  .dex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  .dex_info img {
-    max-width: 100%;
-    max-height: 250px;
-  }
-
-  .dex_info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .dex_description {
-    grid-column: 1 / span 2;
-    padding: 10px;
-    margin: 5px;
-    max-height: 150px;
-    overflow: scroll;
-    background: var(--vu);
-  }
-
-  .dex_list {
-    display: flex;
-    overflow: scroll;
-    flex-direction: column;
-  }
-
-  .dex_title {
-    text-align: center;
-    font-weight: bold;
-    background: var(--gu);
-    color: whitesmoke;
-    padding: 2.5px;
-  }
-
-  .fauna, .flora {
-    background: var(--vu);
-  }
-
-  .species {
-    display: flex;
-    padding: 5px;
-    flex-direction: row;
-    gap: 1em;
-  }
-
-  .species:hover, .species.selected {
-    cursor: pointer;
-    background: var(--mu);
-  }
-
-  @media only screen and (max-width: 1000px) {
-    #container {
-      width: 98%;
-      height: 95vh;
-    }
-
-   .row {
-      flex-wrap: wrap;
-      margin-top: 10px;
-      gap: 0px;
-      height: auto;
-    }
-
-    .block {
-      flex: 100%;
-    }
-
-    .dex_container {
-      height: 60vh;
-    }
-
-    .dex_list {
-      flex-direction: row;
-      height: auto;
-    }
-
-    .species {
-      flex-direction: column;
-      text-align: center;
-      gap: 5px;
-      min-width: 80px;
-      text-overflow: ellipsis;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    .dex_container {
-      padding: 0px;
-    }
-
-    .dex_row {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto; 
-    }
-
-    .dex_info {
-      grid-column: 1 / span 2;
-      overflow: visible;
-    }
-
-    .dex_info img {
-      max-width: 300px;
-      max-height: 20vh;
-    }
-  }
-</style>
-
-<div class="row" style="align-items: center; justify-content: center; background: var(--mu); height: auto; padding: 2.5px">
-  <span style="font-size: 1.25em; font-weight: bold;">fauna/flora index</span><span>(<a href="https://tally.so/r/npz6rb" target="_blank">submit here</a>)</span>
-</div>
-
-<div class="row">
-  <div class="block fauna">
-    <div class="dex_title">fauna</div>
-    <div class="dex_list">
-      {% for k in site.data.ffindex %}
-        {% if k.type == "fauna" %}
-          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div><div>{{ k.species }}</div></div>
-        {% endif %}
-      {% endfor %}
-    </div>
+<div>
+  <div class="row">
+    <div class="tab" id="tab-fauna" onclick="showTab('fauna')">🐚fauna</div>
+    <div class="tab" id="tab-flora" onclick="showTab('flora')">🌷flora</div>
+    <div class="tab" id="tab-submit" onclick="showTab('submit')">📥submit</div>
   </div>
 
-<div class="block dex_container">
-  {% for k in site.data.ffindex %}
-    <div class="dex" data-title="{{ k.species }}" style="display: none">
-      <div class="dex_row">
-        <div class="block dex_info" style="overflow: visible"><img src="{{ k.image }}"></div>
-        <div class="block dex_info">
-          <table>
-            <tr><th colspan="2">#{{ forloop.index }} {{ k.species }}</th></tr>
-            <tr>
-              <td>lives in..</td>
-              <td>{{ k.habitat }}</td>
-            </tr>
-            <tr>
-              <td>eats...</td>
-              <td>{{ k.diet }}</td>
-            </tr>
-            <tr>
-              <td>discovered by</td>
-              <td>
-                {% if k.credit_url %}
-                  <a href="{{ k.credit_url }}" target="_blank">{{ k.contributor }}</a>
-                {% else %}
-                   {{ k.contributor }}
-                {% endif %}
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="dex_description">
-          {{ k.description }}
-        </div>
+  <div class="content_container">
+    <div class="tab_content" id="content-fauna">
+      <div class="block list">
+        {% for fauna in site.data.ffindex %}
+          {% if fauna.type == "fauna" %}
+            <div class="list_item" data-name="{{ fauna.species }}">
+              <span style="color: tomato">#{{ forloop.index }}</span>
+              {{ fauna.species }}
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
+      <div class="row">
+        {% for fauna in site.data.ffindex %}
+          <div class="dex" data-title="{{ fauna.species }}" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="{{ fauna.image }}"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#{{ forloop.index }} {{ fauna.species }}</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>{{ fauna.habitat }}</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>{{ fauna.diet }}</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      {% if fauna.credit_url %}
+                        <a href="{{ fauna.credit_url }}" target="_blank">{{ fauna.contributor }}</a>
+                      {% else %}
+                         {{ k.contributor }}
+                      {% endif %}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">{{ fauna.description }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>    
     </div>
-  {% endfor %}
-</div>
 
-  <div class="block flora">
-    <div class="dex_title">flora</div>
-      <div class="dex_list">
-      {% for k in site.data.ffindex %}
-        {% if k.type == "flora" %}
-          <div class="species" data-name="{{ k.species }}"><div><span style="color: var(--ku)">#{{ forloop.index }}</span></div><div>{{ k.species }}</div></div>
-        {% endif %}
-      {% endfor %}
+    <div class="tab_content" id="content-flora">
+      <div class="block list">
+        {% for flora in site.data.ffindex %}
+          {% if flora.type == "flora" %}
+            <div class="list_item" data-name="{{ flora.species }}">
+              <span style="color: tomato">#{{ forloop.index }}</span>
+              {{ flora.species }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="row">
+        {% for flora in site.data.ffindex %}
+          <div class="dex" data-title="{{ flora.species }}" style="display: none">
+            <div class="row dex_style">
+            <div class="block" style="display: flex; justify-content: center; align-items: center; height: 260px"><img src="{{ flora.image }}"></div>
+              <div class="block">
+                <table>
+                  <tr><th colspan="2" style="color: ivory">#{{ forloop.index }} {{ flora.species }}</th></tr>
+                  <tr>
+                    <td>lives in..</td>
+                    <td>{{ flora.habitat }}</td>
+                  </tr>
+                  <tr>
+                    <td>eats...</td>
+                    <td>{{ flora.diet }}</td>
+                  </tr>
+                  <tr>
+                    <td>discovered by</td>
+                    <td>
+                      {% if flora.credit_url %}
+                        <a href="{{ flora.credit_url }}" target="_blank">{{ flora.contributor }}</a>
+                      {% else %}
+                         {{ flora.contributor }}
+                      {% endif %}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="row dex_style">
+              <div class="block description">{{ flora.description }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>    
+    </div>
+
+    <div class="tab_content" id="content-submit">
+      <iframe data-tally-src="https://tally.so/embed/npz6rb?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="636" frameborder="0" marginheight="0" marginwidth="0" title="fauna/flora index: submission"></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </div>
   </div>
 </div>
 
 <script>
-  const species = document.querySelectorAll('.species');
+  window.onload = function() {
+  showTab('fauna');
+  };
+
+  function showTab(tabId) {
+      const allTabs = document.querySelectorAll('.tab');
+      const allTabContents = document.querySelectorAll('.tab_content');
+      
+      allTabs.forEach(tab => tab.classList.remove('active'));
+      allTabContents.forEach(content => content.classList.remove('active'));
+
+      const allListItems = document.querySelectorAll('.list_item');
+      const allDexItems = document.querySelectorAll('.dex');
+      allListItems.forEach(item => item.classList.remove('selected'));
+      allDexItems.forEach(dex => dex.style.display = 'none');
+
+      const activeTab = document.getElementById('tab-' + tabId);
+      const activeTabContent = document.getElementById('content-' + tabId);
+      activeTab.classList.add('active');
+      activeTabContent.classList.add('active');
+  }
+
+  const species = document.querySelectorAll('.list_item');
 
   species.forEach(species => {
     species.addEventListener('click', () => {
@@ -245,7 +165,7 @@ contributor:
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    const speciesElements = document.querySelectorAll('.species');
+    const speciesElements = document.querySelectorAll('.list_item');
 
     speciesElements.forEach(function(species) {
       species.addEventListener('click', function() {
