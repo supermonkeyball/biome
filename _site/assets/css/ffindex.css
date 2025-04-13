@@ -32,6 +32,10 @@
     background: beige;
   }
 
+  #tab-submit {
+    color: var(--ku);
+  }
+
   .tab_content {
     display: none;
     padding: 10px;
