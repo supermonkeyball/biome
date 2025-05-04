@@ -95,6 +95,21 @@ nav a:hover, .current {
   background: linear-gradient(0deg, var(--mu) 20%, var(--shu) 300%);
 }
 
+footer {
+  display: flex;
+  text-align: center;
+  font-size: 0.75em;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a {
+  text-decoration: none;
+  border: solid 1px;
+  padding: 8px;
+  margin: 2px;
+}
+
 .current:hover {
   cursor: default;
 }
